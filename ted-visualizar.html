@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TED &middot; Visualizar Processos — Sistema de Processos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ MENU LATERAL ============ -->
+    <aside class="lateral">
+      <div class="lateral-marca">
+        <span class="sigla">SP</span>
+        <span class="nome">
+          <strong>Sistema de Processos</strong>
+          Painel interno
+        </span>
+      </div>
+
+      <div class="lateral-tipo">
+        <span class="rotulo">Tipo de processo</span>
+        <div class="atual">
+          <span class="sigla-tipo">TED</span>
+          <a href="index.html" class="trocar">Trocar</a>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="ted-visualizar.html" class="ativa">Visualizar Processos</a>
+        <a href="ted-processos.html">Processos</a>
+      </nav>
+
+      <div class="lateral-usuario">
+        <span class="avatar">T</span>
+        Tina
+      </div>
+    </aside>
+
+    <div class="conteudo">
+
+  <main class="pagina">
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Visualizar Processos</h1>
+        <p>Processos em aberto e o que ainda falta em cada um.</p>
+      </div>
+      <div class="acoes">
+        <a href="ted-novo.html" class="botao primario">+ Cadastrar processo</a>
+      </div>
+    </div>
+
+    <!-- ---- painéis de resumo ---- -->
+    <section class="resumo">
+      <div class="painel">
+        <div class="rotulo">Em andamento</div>
+        <div class="valor">9</div>
+      </div>
+      <div class="painel alerta">
+        <div class="rotulo">Com pendência</div>
+        <div class="valor">9</div>
+      </div>
+      <div class="painel ok">
+        <div class="rotulo">Concluídos</div>
+        <div class="valor">3</div>
+      </div>
+      <div class="painel aviso">
+        <div class="rotulo">Em alteração</div>
+        <div class="valor">1</div>
+      </div>
+    </section>
+
+    <!-- ---- busca pelo número do processo ---- -->
+    <section class="filtros">
+      <div class="campo" style="flex:1.3">
+        <label for="busca">Nº do processo</label>
+        <input id="busca" type="text" placeholder="Ex.: 71000.026566/2026-57">
+      </div>
+
+      <div class="campo" style="flex:1">
+        <label for="inst">Instituição</label>
+        <input id="inst" type="text" list="instituicoes" placeholder="Comece a digitar: UF, IF, CEFET...">
+      </div>
+
+      <div class="campo" style="flex:.7">
+        <label for="ted">TED nº</label>
+        <input id="ted" type="text" placeholder="17/2026">
+      </div>
+
+      <button type="button" class="botao secundario">Buscar</button>
+      <button type="button" class="botao discreto">Limpar</button>
+    </section>
+
+    <!-- lista de sugestões da instituição -->
+    <datalist id="instituicoes">
+      <option value="CEFET/RJ">Centro Federal de Educação Tecnológica Celso Suckow da Fonseca</option>
+      <option value="IFB">Instituto Federal de Brasília</option>
+      <option value="IFPI">Instituto Federal do Piauí</option>
+      <option value="IFRJ">Instituto Federal do Rio de Janeiro</option>
+      <option value="UERJ">Universidade do Estado do Rio de Janeiro</option>
+      <option value="UFBA">Universidade Federal da Bahia</option>
+      <option value="UFC">Universidade Federal do Ceará</option>
+      <option value="UFF">Universidade Federal Fluminense</option>
+      <option value="UFMG">Universidade Federal de Minas Gerais</option>
+      <option value="UFPE">Universidade Federal de Pernambuco</option>
+      <option value="UFPI">Universidade Federal do Piauí</option>
+      <option value="UFPR">Universidade Federal do Paraná</option>
+      <option value="UFRGS">Universidade Federal do Rio Grande do Sul</option>
+      <option value="UFRJ">Universidade Federal do Rio de Janeiro</option>
+      <option value="UFRRJ">Universidade Federal Rural do Rio de Janeiro</option>
+      <option value="UFSC">Universidade Federal de Santa Catarina</option>
+      <option value="UnB">Universidade de Brasília</option>
+      <option value="UNIRIO">Universidade Federal do Estado do Rio de Janeiro</option>
+    </datalist>
+
+    <!-- ============================================================
+         FILTRO POR ETAPA
+         Os rádios abaixo estão escondidos pelo CSS. Cada chip é um
+         <label for="..."> que marca o rádio correspondente, e o CSS
+         esconde as linhas das outras etapas. Sem JavaScript.
+         ============================================================ -->
+    <div class="filtro-etapas">
+
+      <input type="radio" name="etapa" id="f-todos" checked>
+      <input type="radio" name="etapa" id="f-criado">
+      <input type="radio" name="etapa" id="f-adimplencia">
+      <input type="radio" name="etapa" id="f-certificacao">
+      <input type="radio" name="etapa" id="f-empenho">
+      <input type="radio" name="etapa" id="f-nota">
+      <input type="radio" name="etapa" id="f-pagamento">
+      <input type="radio" name="etapa" id="f-programacao">
+      <input type="radio" name="etapa" id="f-movimentacao">
+
+      <div class="chips">
+        <label class="chip" for="f-todos">Todos <span class="conta">9</span></label>
+        <label class="chip" for="f-criado">Processo criado <span class="conta">1</span></label>
+        <label class="chip" for="f-adimplencia">Verificação de Adimplência <span class="conta">1</span></label>
+        <label class="chip" for="f-certificacao">Certificação Orçamentária <span class="conta">1</span></label>
+        <label class="chip" for="f-empenho">Formulário de Empenho <span class="conta">1</span></label>
+        <label class="chip" for="f-nota">Nota de Empenho <span class="conta">2</span></label>
+        <label class="chip" for="f-pagamento">Formulário de Pagamento <span class="conta">1</span></label>
+        <label class="chip" for="f-programacao">Nota de Programação Financeira <span class="conta">1</span></label>
+        <label class="chip" for="f-movimentacao">Nota de Movimentação de Crédito <span class="conta">1</span></label>
+      </div>
+
+      <!-- ---- lista de processos ---- -->
+      <section class="cartao">
+        <div class="cartao-topo">
+          <h2>Processos em aberto</h2>
+          <span class="obrigatorio">Somente não concluídos</span>
+        </div>
+
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Nº do processo</th>
+              <th>Etapa atual</th>
+              <th>O que falta</th>
+              <th>Valor</th>
+              <th>Progresso</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="e-nota">
+              <td>
+                <div class="principal">71000.026566/2026-57</div>
+                <div class="secundario">IFPI — TED 17/2026 · UG 158146/26431 · SIORG 434</div>
+              </td>
+              <td><span class="selo azul">Nota de Empenho</span></td>
+              <td class="pendencias">
+                <span class="pendente">Quando emitirem o empenho — solicitar financeiro</span>
+                <button type="button" class="mais">
+                  3 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Notas de empenho ainda não emitidas</li>
+                      <li>Solicitar o financeiro depois do empenho</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td class="secundario">a definir</td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra"><span style="width:67%"></span></div>
+                  <span>6/9</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-movimentacao">
+              <td>
+                <div class="principal">71000.017556/2025-14</div>
+                <div class="secundario">CEFET/RJ — TED 05/2025 · UG 153010/15220 · SIORG 398</div>
+              </td>
+              <td><span class="selo azul">Nota de Movimentação de Crédito</span></td>
+              <td class="pendencias">
+                <span class="pendente">Emissão da NC (formulário 17276745)</span>
+                <button type="button" class="mais">
+                  1 pendência
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Número, código SEI e data de emissão da NC</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 340.000,00</div>
+                <div class="secundario">definitivo</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra quase"><span style="width:89%"></span></div>
+                  <span>8/9</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-programacao">
+              <td>
+                <div class="principal">71000.019842/2025-31</div>
+                <div class="secundario">UFRRJ — TED 06/2025 · UG 153166/15240 · SIORG 432</div>
+              </td>
+              <td><span class="selo azul">Nota de Programação Financeira</span></td>
+              <td class="pendencias">
+                <span class="pendente">Emissão da NPF 2025PF000014</span>
+                <button type="button" class="mais">
+                  1 pendência
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Data de emissão da NPF 2025PF000014</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 1.472.232,99</div>
+                <div class="secundario">definitivo</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra quase"><span style="width:88%"></span></div>
+                  <span>7/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-pagamento">
+              <td>
+                <div class="principal">71000.015203/2025-88</div>
+                <div class="secundario">UERJ — TED 04/2025 · UG 153002/15218 · SIORG 388</div>
+              </td>
+              <td><span class="selo azul">Formulário de Pagamento</span></td>
+              <td class="pendencias">
+                <span class="pendente">Envio ao SGT e e-mail de aviso</span>
+                <button type="button" class="mais">
+                  3 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Envio do formulário ao SGT</li>
+                      <li>E-mail de aviso do repasse (data e motivo)</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 780.000,00</div>
+                <div class="secundario">inicial</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra"><span style="width:75%"></span></div>
+                  <span>6/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-nota">
+              <td>
+                <div class="principal">71000.021477/2025-09</div>
+                <div class="secundario">UFRJ — TED 07/2025 · UG 153163/15236 · SIORG 429</div>
+              </td>
+              <td><span class="selo azul">Nota de Empenho</span></td>
+              <td class="pendencias">
+                <span class="pendente">Falta 1 de 3 notas de empenho</span>
+                <button type="button" class="mais">
+                  4 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>1 de 3 notas de empenho</li>
+                      <li>Formulário de Pagamento / Repasse</li>
+                      <li>Envio ao SGT e e-mail de aviso</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 860.000,00</div>
+                <div class="secundario">inicial</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra"><span style="width:63%"></span></div>
+                  <span>5/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-empenho">
+              <td>
+                <div class="principal">71000.024930/2025-72</div>
+                <div class="secundario">UFRRJ — TED 11/2025 · UG 153166/15240 · SIORG 432</div>
+              </td>
+              <td><span class="selo azul">Formulário de Empenho</span></td>
+              <td class="pendencias">
+                <span class="pendente">Código SEI do formulário</span>
+                <button type="button" class="mais">
+                  5 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Código SEI do Formulário de Empenho</li>
+                      <li>Notas de empenho</li>
+                      <li>Formulário de Pagamento / Repasse</li>
+                      <li>Envio ao SGT e e-mail de aviso</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 220.000,00</div>
+                <div class="secundario">inicial</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra inicio"><span style="width:50%"></span></div>
+                  <span>4/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-certificacao">
+              <td>
+                <div class="principal">71000.022108/2025-45</div>
+                <div class="secundario">UFF — TED 08/2025 · UG 153056/15227 · SIORG 411</div>
+              </td>
+              <td><span class="selo azul">Certificação Orçamentária</span></td>
+              <td class="pendencias">
+                <span class="pendente">Assinatura de Alison (Ordenador)</span>
+                <button type="button" class="mais">
+                  6 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Assinatura de Alison na Certificação</li>
+                      <li>Formulário de Empenho</li>
+                      <li>Notas de empenho</li>
+                      <li>Formulário de Pagamento / Repasse</li>
+                      <li>Envio ao SGT e e-mail de aviso</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 1.200.000,00</div>
+                <div class="secundario">inicial</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra inicio"><span style="width:38%"></span></div>
+                  <span>3/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="e-adimplencia">
+              <td>
+                <div class="principal">71000.023641/2025-60</div>
+                <div class="secundario">UNIRIO — TED 09/2025 · UG 153035/15226 · SIORG 405</div>
+              </td>
+              <td><span class="selo azul">Verificação de Adimplência</span></td>
+              <td class="pendencias">
+                <span class="pendente">Assinaturas de Manoel e Tina</span>
+                <button type="button" class="mais">
+                  7 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Assinaturas de Manoel e Tina na Adimplência</li>
+                      <li>Certificação Orçamentária</li>
+                      <li>Formulário de Empenho</li>
+                      <li>Notas de empenho</li>
+                      <li>Formulário de Pagamento / Repasse</li>
+                      <li>Envio ao SGT e e-mail de aviso</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td>
+                <div>R$ 412.000,00</div>
+                <div class="secundario">inicial</div>
+              </td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra inicio"><span style="width:25%"></span></div>
+                  <span>2/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <!-- exemplo do processo recém-criado: só o número foi informado -->
+            <tr class="e-criado">
+              <td>
+                <div class="principal">71000.026801/2025-11</div>
+                <div class="secundario">Nenhum outro dado informado ainda</div>
+              </td>
+              <td><span class="selo cinza">Processo criado</span></td>
+              <td class="pendencias">
+                <span class="pendente">Cadastro apenas iniciado</span>
+                <button type="button" class="mais">
+                  9 pendências
+                  <span class="balao">
+                    <span class="titulo">Falta preencher</span>
+                    <ul>
+                      <li>Instituição, UG / Gestão favorecida e SIORG</li>
+                      <li>TED nº e vigência</li>
+                      <li>Valor inicial e valor definitivo</li>
+                      <li>Verificação de Adimplência</li>
+                      <li>Certificação Orçamentária</li>
+                      <li>Formulário de Empenho</li>
+                      <li>Notas de empenho</li>
+                      <li>Formulário de Pagamento e envio ao SGT</li>
+                      <li>Nota de Programação Financeira</li>
+                    </ul>
+                  </span>
+                </button>
+              </td>
+              <td class="secundario">a definir</td>
+              <td>
+                <div class="progresso-linha">
+                  <div class="barra inicio"><span style="width:13%"></span></div>
+                  <span>1/8</span>
+                </div>
+              </td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-novo.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+
+    </div><!-- fim do filtro-etapas -->
+
+    </main>
+
+  <footer class="rodape">
+    Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.
+  </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

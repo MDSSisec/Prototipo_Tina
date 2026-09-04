@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TED &middot; Processos — Sistema de Processos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ MENU LATERAL ============ -->
+    <aside class="lateral">
+      <div class="lateral-marca">
+        <span class="sigla">SP</span>
+        <span class="nome">
+          <strong>Sistema de Processos</strong>
+          Painel interno
+        </span>
+      </div>
+
+      <div class="lateral-tipo">
+        <span class="rotulo">Tipo de processo</span>
+        <div class="atual">
+          <span class="sigla-tipo">TED</span>
+          <a href="index.html" class="trocar">Trocar</a>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="ted-visualizar.html">Visualizar Processos</a>
+        <a href="ted-processos.html" class="ativa">Processos</a>
+      </nav>
+
+      <div class="lateral-usuario">
+        <span class="avatar">T</span>
+        Tina
+      </div>
+    </aside>
+
+    <div class="conteudo">
+
+  <main class="pagina">
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Processos</h1>
+        <p>Processos já encerrados. Podem voltar para alteração quando houver mudança.</p>
+      </div>
+      <div class="acoes">
+        <a href="ted-novo.html" class="botao primario">+ Cadastrar processo</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         BUSCA
+         O campo de instituição usa <datalist>: conforme ela digita,
+         o navegador sugere as instituições da lista. É um recurso do
+         próprio HTML, funciona com 5 ou com 500 instituições.
+         ============================================================ -->
+    <section class="filtros">
+      <div class="campo" style="flex:1.3">
+        <label for="busca">Nº do processo</label>
+        <input id="busca" type="text" placeholder="Ex.: 71000.013287/2025-90">
+      </div>
+
+      <div class="campo" style="flex:1">
+        <label for="inst">Instituição</label>
+        <input id="inst" type="text" list="instituicoes" placeholder="Comece a digitar: UF, IF, CEFET...">
+      </div>
+
+      <div class="campo" style="flex:.7">
+        <label for="ted">TED nº</label>
+        <input id="ted" type="text" placeholder="03/2025">
+      </div>
+
+      <button type="button" class="botao secundario">Buscar</button>
+      <button type="button" class="botao discreto">Limpar</button>
+    </section>
+
+    <!-- lista de sugestões da instituição -->
+    <datalist id="instituicoes">
+      <option value="CEFET/RJ">Centro Federal de Educação Tecnológica Celso Suckow da Fonseca</option>
+      <option value="IFB">Instituto Federal de Brasília</option>
+      <option value="IFPI">Instituto Federal do Piauí</option>
+      <option value="IFRJ">Instituto Federal do Rio de Janeiro</option>
+      <option value="UERJ">Universidade do Estado do Rio de Janeiro</option>
+      <option value="UFBA">Universidade Federal da Bahia</option>
+      <option value="UFC">Universidade Federal do Ceará</option>
+      <option value="UFF">Universidade Federal Fluminense</option>
+      <option value="UFMG">Universidade Federal de Minas Gerais</option>
+      <option value="UFPE">Universidade Federal de Pernambuco</option>
+      <option value="UFPI">Universidade Federal do Piauí</option>
+      <option value="UFPR">Universidade Federal do Paraná</option>
+      <option value="UFRGS">Universidade Federal do Rio Grande do Sul</option>
+      <option value="UFRJ">Universidade Federal do Rio de Janeiro</option>
+      <option value="UFRRJ">Universidade Federal Rural do Rio de Janeiro</option>
+      <option value="UFSC">Universidade Federal de Santa Catarina</option>
+      <option value="UnB">Universidade de Brasília</option>
+      <option value="UNIRIO">Universidade Federal do Estado do Rio de Janeiro</option>
+    </datalist>
+
+    <div class="filtro-etapas">
+
+      <input type="radio" name="situacao" id="h-todos" checked>
+      <input type="radio" name="situacao" id="h-concluido">
+      <input type="radio" name="situacao" id="h-alteracao">
+
+      <div class="chips">
+        <label class="chip" for="h-todos">Todos <span class="conta">4</span></label>
+        <label class="chip" for="h-concluido">Concluídos <span class="conta">3</span></label>
+        <label class="chip" for="h-alteracao">Em alteração <span class="conta">1</span></label>
+      </div>
+
+      <section class="cartao">
+        <div class="cartao-topo">
+          <h2>Processos encerrados</h2>
+        </div>
+
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Nº do processo</th>
+              <th>Situação</th>
+              <th>Observação da alteração</th>
+              <th>Valor</th>
+              <th>Concluído em</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="s-alteracao">
+              <td>
+                <div class="principal">71000.011903/2025-24</div>
+                <div class="secundario">UFRRJ — TED 02/2025 · UG 153166/15240</div>
+              </td>
+              <td><span class="selo roxo">TED em alteração</span></td>
+              <td class="pendente">Vigência aditiva até 30/06/2027 — aguardando novo formulário de empenho</td>
+              <td>R$ 1.100.000,00</td>
+              <td>12/05/2025</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe-alteracao.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="s-concluido">
+              <td>
+                <div class="principal">71000.013287/2025-90</div>
+                <div class="secundario">UFF — TED 03/2025 · UG 153056/15227</div>
+              </td>
+              <td><span class="selo verde">Concluído</span></td>
+              <td class="secundario">—</td>
+              <td>R$ 640.000,00</td>
+              <td>28/06/2025</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe-concluido.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="s-concluido">
+              <td>
+                <div class="principal">71000.009415/2025-07</div>
+                <div class="secundario">UFRJ — TED 01/2025 · UG 153163/15236</div>
+              </td>
+              <td><span class="selo verde">Concluído</span></td>
+              <td class="secundario">—</td>
+              <td>R$ 2.050.000,00</td>
+              <td>19/03/2025</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe-concluido.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+            <tr class="s-concluido">
+              <td>
+                <div class="principal">71000.031662/2024-58</div>
+                <div class="secundario">UNIRIO — TED 12/2024 · UG 153035/15226</div>
+              </td>
+              <td><span class="selo verde">Concluído</span></td>
+              <td class="secundario">—</td>
+              <td>R$ 415.000,00</td>
+              <td>05/12/2024</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe-concluido.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+
+    </div><!-- fim do filtro -->
+
+    </main>
+
+  <footer class="rodape">
+    Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.
+  </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

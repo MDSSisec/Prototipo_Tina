@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TED &middot; Editar 71000.019842/2025-31 — Sistema de Processos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ MENU LATERAL ============ -->
+    <aside class="lateral">
+      <div class="lateral-marca">
+        <span class="sigla">SP</span>
+        <span class="nome">
+          <strong>Sistema de Processos</strong>
+          Painel interno
+        </span>
+      </div>
+
+      <div class="lateral-tipo">
+        <span class="rotulo">Tipo de processo</span>
+        <div class="atual">
+          <span class="sigla-tipo">TED</span>
+          <a href="index.html" class="trocar">Trocar</a>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="ted-visualizar.html">Visualizar Processos</a>
+        <a href="ted-processos.html">Processos</a>
+      </nav>
+
+      <div class="lateral-usuario">
+        <span class="avatar">T</span>
+        Tina
+      </div>
+    </aside>
+
+    <div class="conteudo">
+
+  <main class="pagina">
+
+    <div class="trilha">
+      <a href="ted-visualizar.html">Visualizar Processos</a> &rsaquo;
+      <a href="ted-detalhe.html">71000.019842/2025-31</a> &rsaquo; <strong>Editar</strong>
+    </div>
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Editar processo</h1>
+        <p>71000.019842/2025-31 — UFRRJ · TED 06/2025 · UG 153166/15240</p>
+      </div>
+      <div class="acoes">
+        <a href="ted-detalhe.html" class="botao secundario">Cancelar</a>
+      </div>
+    </div>
+
+    <!-- ================= ANOTAÇÕES (topo do processo) ================= -->
+    <details class="cartao anotacoes" open>
+      <summary class="cartao-topo">
+        <span class="numero">&#9998;</span>
+        <h2>Anotações</h2>
+        <span class="obrigatorio">2 de 3 pendentes</span>
+      </summary>
+      <div class="cartao-corpo">
+
+        <label class="anotacao">
+          <input type="checkbox">
+          <span class="texto">Ligar para a UFRRJ dia 12/09 para cobrar o empenho</span>
+          <span class="quando">criada em 02/09/2025</span>
+        </label>
+
+        <label class="anotacao">
+          <input type="checkbox">
+          <span class="texto">Perguntar ao Manoel se a vigência vai ser prorrogada</span>
+          <span class="quando">criada em 28/08/2025</span>
+        </label>
+
+        <label class="anotacao">
+          <input type="checkbox" checked>
+          <span class="texto">Confirmar com o SGT o recebimento do formulário</span>
+          <span class="quando">criada em 08/08/2025</span>
+        </label>
+
+        <div class="grade" style="margin-top:16px">
+          <div class="campo col-12">
+            <label for="nova-anotacao">Nova anotação</label>
+            <input id="nova-anotacao" type="text" placeholder="Ex.: ligar para a empresa X no dia 20/09">
+          </div>
+        </div>
+
+        <button type="button" class="adicionar">+ Adicionar anotação</button>
+
+      </div>
+    </details>
+
+    <!-- ============================================================
+         FORMULÁRIO
+         As caixas de seleção logo abaixo são as etapas. Ficam
+         escondidas pelo CSS; quem as marca são os botões do painel
+         "Adicionar etapa". Sem JavaScript.
+         ============================================================ -->
+    <form action="ted-visualizar.html" method="get" class="form-etapas">
+
+      <input type="checkbox" id="et-adim-1" checked>
+      <input type="checkbox" id="et-adim-2">
+      <input type="checkbox" id="et-adim-3">
+      <input type="checkbox" id="et-adim-4">
+      <input type="checkbox" id="et-cert-1" checked>
+      <input type="checkbox" id="et-cert-2">
+      <input type="checkbox" id="et-cert-3">
+      <input type="checkbox" id="et-cert-4">
+      <input type="checkbox" id="et-emp-1" checked>
+      <input type="checkbox" id="et-emp-2">
+      <input type="checkbox" id="et-emp-3">
+      <input type="checkbox" id="et-emp-4">
+      <input type="checkbox" id="et-ne-1" checked>
+      <input type="checkbox" id="et-ne-2">
+      <input type="checkbox" id="et-ne-3">
+      <input type="checkbox" id="et-ne-4">
+      <input type="checkbox" id="et-pag-1" checked>
+      <input type="checkbox" id="et-pag-2">
+      <input type="checkbox" id="et-pag-3">
+      <input type="checkbox" id="et-pag-4">
+      <input type="checkbox" id="et-pf-1" checked>
+      <input type="checkbox" id="et-pf-2">
+      <input type="checkbox" id="et-pf-3">
+      <input type="checkbox" id="et-pf-4">
+      <input type="checkbox" id="et-nc-1">
+      <input type="checkbox" id="et-nc-2">
+      <input type="checkbox" id="et-nc-3">
+      <input type="checkbox" id="et-nc-4">
+
+      <!-- ================= 1. PROCESSO (sempre presente) ================= -->
+      <details class="cartao" open>
+        <summary class="cartao-topo">
+          <span class="numero">1</span>
+          <h2>Processo</h2>
+          <span class="obrigatorio">Dados principais</span>
+        </summary>
+        <div class="cartao-corpo">
+          <div class="grade">
+
+            <div class="campo col-5">
+              <label for="processo-numero">Número do processo <span class="req">*</span></label>
+              <input id="processo-numero" type="text" value="71000.019842/2025-31">
+            </div>
+
+            <div class="campo col-4">
+              <label for="instituicao">Instituição</label>
+              <input id="instituicao" type="text" value="UFRRJ">
+            </div>
+
+            <div class="campo col-3">
+              <label for="ted-numero">TED nº</label>
+              <input id="ted-numero" type="text" value="06/2025">
+            </div>
+
+            <div class="campo col-4">
+              <label for="vig-inicio">Início da vigência</label>
+              <input id="vig-inicio" type="date" value="2025-07-25">
+            </div>
+
+            <div class="campo col-4">
+              <label for="vig-fim">Fim da vigência</label>
+              <input id="vig-fim" type="date" value="2027-01-21">
+            </div>
+
+            <div class="campo col-12">
+              <label>Vigência aditiva</label>
+              <div class="assinaturas">
+                <label class="assinatura">
+                  <input type="checkbox">
+                  Houve alteração de vigência
+                </label>
+              </div>
+            </div>
+
+            <div class="campo col-4">
+              <label for="unidade-ug">UG / Gestão favorecida</label>
+              <input id="unidade-ug" type="text" value="153166/15240">
+            </div>
+
+            <div class="campo col-4">
+              <label for="siorg">SIORG</label>
+              <input id="siorg" type="text" value="432">
+            </div>
+
+            <div class="campo col-4">
+              <label for="valor-inicial">Valor inicial</label>
+              <input id="valor-inicial" type="text" value="R$ 1.500.000,00">
+            </div>
+
+            <div class="campo col-4">
+              <label for="valor-final">Valor definitivo</label>
+              <input id="valor-final" type="text" value="R$ 1.472.232,99">
+            </div>
+
+            <div class="campo col-4">
+              <label for="valor-motivo">Motivo da alteração do valor</label>
+              <input id="valor-motivo" type="text" value="Corte orçamentário na descentralização">
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ================= PAINEL DE ADICIONAR ETAPAS ================= -->
+      <div class="painel-adicionar">
+        <span class="titulo">Adicionar etapa</span>
+        <label class="chip-add" for="et-adim-1">+ Verificação de Adimplência</label>
+        <label class="chip-add" for="et-adim-2">+ Verificação de Adimplência</label>
+        <label class="chip-add" for="et-adim-3">+ Verificação de Adimplência</label>
+        <label class="chip-add" for="et-adim-4">+ Verificação de Adimplência</label>
+        <label class="chip-add" for="et-cert-1">+ Certificação Orçamentária</label>
+        <label class="chip-add" for="et-cert-2">+ Certificação Orçamentária</label>
+        <label class="chip-add" for="et-cert-3">+ Certificação Orçamentária</label>
+        <label class="chip-add" for="et-cert-4">+ Certificação Orçamentária</label>
+        <label class="chip-add" for="et-emp-1">+ Formulário de Empenho / Descentralização</label>
+        <label class="chip-add" for="et-emp-2">+ Formulário de Empenho / Descentralização</label>
+        <label class="chip-add" for="et-emp-3">+ Formulário de Empenho / Descentralização</label>
+        <label class="chip-add" for="et-emp-4">+ Formulário de Empenho / Descentralização</label>
+        <label class="chip-add" for="et-ne-1">+ Nota de Empenho</label>
+        <label class="chip-add" for="et-ne-2">+ Nota de Empenho</label>
+        <label class="chip-add" for="et-ne-3">+ Nota de Empenho</label>
+        <label class="chip-add" for="et-ne-4">+ Nota de Empenho</label>
+        <label class="chip-add" for="et-pag-1">+ Formulário de Pagamento / Repasse Financeiro</label>
+        <label class="chip-add" for="et-pag-2">+ Formulário de Pagamento / Repasse Financeiro</label>
+        <label class="chip-add" for="et-pag-3">+ Formulário de Pagamento / Repasse Financeiro</label>
+        <label class="chip-add" for="et-pag-4">+ Formulário de Pagamento / Repasse Financeiro</label>
+        <label class="chip-add" for="et-pf-1">+ Nota de Programação Financeira</label>
+        <label class="chip-add" for="et-pf-2">+ Nota de Programação Financeira</label>
+        <label class="chip-add" for="et-pf-3">+ Nota de Programação Financeira</label>
+        <label class="chip-add" for="et-pf-4">+ Nota de Programação Financeira</label>
+        <label class="chip-add" for="et-nc-1">+ Nota de Movimentação de Crédito</label>
+        <label class="chip-add" for="et-nc-2">+ Nota de Movimentação de Crédito</label>
+        <label class="chip-add" for="et-nc-3">+ Nota de Movimentação de Crédito</label>
+        <label class="chip-add" for="et-nc-4">+ Nota de Movimentação de Crédito</label>
+      </div>
+
+      <!-- ================= ETAPAS ADICIONADAS ================= -->
+      <div class="etapas">
+
+        <details class="cartao" id="s-adim-1" open>
+          <summary class="cartao-topo">
+            <h2>Verificação de Adimplência</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="adim-sei-1">Código SEI</label>
+                <input id="adim-sei-1" type="text" value="17008386">
+              </div>
+              <div class="campo col-4">
+                <label for="adim-status-1">Status</label>
+                <select id="adim-status-1">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option selected>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox" checked> Manoel</label>
+                  <label class="assinatura"><input type="checkbox" checked> Tina</label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-adim-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-adim-2" open>
+          <summary class="cartao-topo">
+            <h2>Verificação de Adimplência</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="adim-sei-2">Código SEI</label>
+                <input id="adim-sei-2" type="text" placeholder="17008386">
+              </div>
+              <div class="campo col-4">
+                <label for="adim-status-2">Status</label>
+                <select id="adim-status-2">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-adim-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-adim-3" open>
+          <summary class="cartao-topo">
+            <h2>Verificação de Adimplência</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="adim-sei-3">Código SEI</label>
+                <input id="adim-sei-3" type="text" placeholder="17008386">
+              </div>
+              <div class="campo col-4">
+                <label for="adim-status-3">Status</label>
+                <select id="adim-status-3">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-adim-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-adim-4" open>
+          <summary class="cartao-topo">
+            <h2>Verificação de Adimplência</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="adim-sei-4">Código SEI</label>
+                <input id="adim-sei-4" type="text" placeholder="17008386">
+              </div>
+              <div class="campo col-4">
+                <label for="adim-status-4">Status</label>
+                <select id="adim-status-4">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-adim-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-cert-1" open>
+          <summary class="cartao-topo">
+            <h2>Certificação Orçamentária</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="cert-sei-1">Código SEI</label>
+                <input id="cert-sei-1" type="text" value="17008388">
+              </div>
+              <div class="campo col-4">
+                <label for="cert-status-1">Status</label>
+                <select id="cert-status-1">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option selected>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox" checked> Alison <span class="cargo">— Ordenador de Despesas</span></label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-cert-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-cert-2" open>
+          <summary class="cartao-topo">
+            <h2>Certificação Orçamentária</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="cert-sei-2">Código SEI</label>
+                <input id="cert-sei-2" type="text" placeholder="17008388">
+              </div>
+              <div class="campo col-4">
+                <label for="cert-status-2">Status</label>
+                <select id="cert-status-2">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador de Despesas</span></label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-cert-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-cert-3" open>
+          <summary class="cartao-topo">
+            <h2>Certificação Orçamentária</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="cert-sei-3">Código SEI</label>
+                <input id="cert-sei-3" type="text" placeholder="17008388">
+              </div>
+              <div class="campo col-4">
+                <label for="cert-status-3">Status</label>
+                <select id="cert-status-3">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador de Despesas</span></label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-cert-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-cert-4" open>
+          <summary class="cartao-topo">
+            <h2>Certificação Orçamentária</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="cert-sei-4">Código SEI</label>
+                <input id="cert-sei-4" type="text" placeholder="17008388">
+              </div>
+              <div class="campo col-4">
+                <label for="cert-status-4">Status</label>
+                <select id="cert-status-4">
+                  <option>Não iniciado</option>
+                  <option>Elaboração</option>
+                  <option>Elaborada e assinada</option>
+                </select>
+              </div>
+              <div class="campo col-12">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador de Despesas</span></label>
+                </div>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-cert-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-emp-1" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Empenho / Descentralização</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="emp-sei-1">Código SEI</label>
+                <input id="emp-sei-1" type="text" value="17276745">
+              </div>
+              <div class="campo col-8">
+                <label for="emp-obs-1">Observação</label>
+                <input id="emp-obs-1" type="text" value="Referente à primeira parcela">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-emp-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-emp-2" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Empenho / Descentralização</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="emp-sei-2">Código SEI</label>
+                <input id="emp-sei-2" type="text" placeholder="17276745">
+              </div>
+              <div class="campo col-8">
+                <label for="emp-obs-2">Observação</label>
+                <input id="emp-obs-2" type="text" placeholder="Ex.: referente à primeira parcela">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-emp-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-emp-3" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Empenho / Descentralização</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="emp-sei-3">Código SEI</label>
+                <input id="emp-sei-3" type="text" placeholder="17276745">
+              </div>
+              <div class="campo col-8">
+                <label for="emp-obs-3">Observação</label>
+                <input id="emp-obs-3" type="text" placeholder="Ex.: referente à primeira parcela">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-emp-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-emp-4" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Empenho / Descentralização</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="emp-sei-4">Código SEI</label>
+                <input id="emp-sei-4" type="text" placeholder="17276745">
+              </div>
+              <div class="campo col-8">
+                <label for="emp-obs-4">Observação</label>
+                <input id="emp-obs-4" type="text" placeholder="Ex.: referente à primeira parcela">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-emp-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-ne-1" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Empenho</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="ne-data-1">Data de emissão</label>
+                <input id="ne-data-1" type="date" value="2025-08-04">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-numero-1">Número</label>
+                <input id="ne-numero-1" type="text" value="2025NE000751">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-valor-1">Valor</label>
+                <input id="ne-valor-1" type="text" value="R$ 2.767,01">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-status-1">Status</label>
+                <select id="ne-status-1">
+                  <option>Aguardando emissão</option>
+                  <option selected>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="ne-form-1">Referente ao formulário de empenho</label>
+                <input id="ne-form-1" type="text" value="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-ne-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-ne-2" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Empenho</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="ne-data-2">Data de emissão</label>
+                <input id="ne-data-2" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-numero-2">Número</label>
+                <input id="ne-numero-2" type="text" placeholder="2025NE000751">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-valor-2">Valor</label>
+                <input id="ne-valor-2" type="text" placeholder="R$ 2.767,01">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-status-2">Status</label>
+                <select id="ne-status-2">
+                  <option>Aguardando emissão</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="ne-form-2">Referente ao formulário de empenho</label>
+                <input id="ne-form-2" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-ne-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-ne-3" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Empenho</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="ne-data-3">Data de emissão</label>
+                <input id="ne-data-3" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-numero-3">Número</label>
+                <input id="ne-numero-3" type="text" placeholder="2025NE000751">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-valor-3">Valor</label>
+                <input id="ne-valor-3" type="text" placeholder="R$ 2.767,01">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-status-3">Status</label>
+                <select id="ne-status-3">
+                  <option>Aguardando emissão</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="ne-form-3">Referente ao formulário de empenho</label>
+                <input id="ne-form-3" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-ne-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-ne-4" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Empenho</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="ne-data-4">Data de emissão</label>
+                <input id="ne-data-4" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-numero-4">Número</label>
+                <input id="ne-numero-4" type="text" placeholder="2025NE000751">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-valor-4">Valor</label>
+                <input id="ne-valor-4" type="text" placeholder="R$ 2.767,01">
+              </div>
+              <div class="campo col-3">
+                <label for="ne-status-4">Status</label>
+                <select id="ne-status-4">
+                  <option>Aguardando emissão</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="ne-form-4">Referente ao formulário de empenho</label>
+                <input id="ne-form-4" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-ne-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pag-1" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Pagamento / Repasse Financeiro</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="pag-sei-1">Código SEI</label>
+                <input id="pag-sei-1" type="text" value="17310143">
+              </div>
+              <div class="campo col-8">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox" checked> Tina</label>
+                  <label class="assinatura"><input type="checkbox" checked> Manoel</label>
+                  <label class="assinatura"><input type="checkbox" checked> Alison <span class="cargo">— Ordenador</span></label>
+                </div>
+              </div>
+              <div class="campo col-12">
+                <label>Envio ao SGT</label>
+                <div class="assinaturas">
+                  <label class="assinatura">
+                    <input type="checkbox" checked>
+                    Formulário assinado e enviado ao SGT
+                  </label>
+                </div>
+              </div>
+              <div class="campo col-4">
+                <label for="email-data-1">E-mail — data de encaminhamento</label>
+                <input id="email-data-1" type="date" value="2025-08-08">
+              </div>
+              <div class="campo col-8">
+                <label for="email-motivo-1">E-mail — motivo do envio</label>
+                <input id="email-motivo-1" type="text" value="Aviso sobre o repasse financeiro">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pag-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pag-2" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Pagamento / Repasse Financeiro</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="pag-sei-2">Código SEI</label>
+                <input id="pag-sei-2" type="text" placeholder="17310143">
+              </div>
+              <div class="campo col-8">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador</span></label>
+                </div>
+              </div>
+              <div class="campo col-12">
+                <label>Envio ao SGT</label>
+                <div class="assinaturas">
+                  <label class="assinatura">
+                    <input type="checkbox">
+                    Formulário assinado e enviado ao SGT
+                  </label>
+                </div>
+              </div>
+              <div class="campo col-4">
+                <label for="email-data-2">E-mail — data de encaminhamento</label>
+                <input id="email-data-2" type="date">
+              </div>
+              <div class="campo col-8">
+                <label for="email-motivo-2">E-mail — motivo do envio</label>
+                <input id="email-motivo-2" type="text" placeholder="Aviso sobre o repasse financeiro">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pag-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pag-3" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Pagamento / Repasse Financeiro</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="pag-sei-3">Código SEI</label>
+                <input id="pag-sei-3" type="text" placeholder="17310143">
+              </div>
+              <div class="campo col-8">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador</span></label>
+                </div>
+              </div>
+              <div class="campo col-12">
+                <label>Envio ao SGT</label>
+                <div class="assinaturas">
+                  <label class="assinatura">
+                    <input type="checkbox">
+                    Formulário assinado e enviado ao SGT
+                  </label>
+                </div>
+              </div>
+              <div class="campo col-4">
+                <label for="email-data-3">E-mail — data de encaminhamento</label>
+                <input id="email-data-3" type="date">
+              </div>
+              <div class="campo col-8">
+                <label for="email-motivo-3">E-mail — motivo do envio</label>
+                <input id="email-motivo-3" type="text" placeholder="Aviso sobre o repasse financeiro">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pag-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pag-4" open>
+          <summary class="cartao-topo">
+            <h2>Formulário de Pagamento / Repasse Financeiro</h2>
+            <span class="obrigatorio">Documento SEI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="pag-sei-4">Código SEI</label>
+                <input id="pag-sei-4" type="text" placeholder="17310143">
+              </div>
+              <div class="campo col-8">
+                <label>Assinaturas</label>
+                <div class="assinaturas">
+                  <label class="assinatura"><input type="checkbox"> Tina</label>
+                  <label class="assinatura"><input type="checkbox"> Manoel</label>
+                  <label class="assinatura"><input type="checkbox"> Alison <span class="cargo">— Ordenador</span></label>
+                </div>
+              </div>
+              <div class="campo col-12">
+                <label>Envio ao SGT</label>
+                <div class="assinaturas">
+                  <label class="assinatura">
+                    <input type="checkbox">
+                    Formulário assinado e enviado ao SGT
+                  </label>
+                </div>
+              </div>
+              <div class="campo col-4">
+                <label for="email-data-4">E-mail — data de encaminhamento</label>
+                <input id="email-data-4" type="date">
+              </div>
+              <div class="campo col-8">
+                <label for="email-motivo-4">E-mail — motivo do envio</label>
+                <input id="email-motivo-4" type="text" placeholder="Aviso sobre o repasse financeiro">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pag-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pf-1" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Programação Financeira</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="pf-numero-1">Número da parcela</label>
+                <input id="pf-numero-1" type="text" value="2025PF000014">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-emissao-1">Data de emissão</label>
+                <input id="pf-emissao-1" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-sei-1">Código SEI</label>
+                <input id="pf-sei-1" type="text" value="18781004">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-status-1">Status</label>
+                <select id="pf-status-1">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pf-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pf-2" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Programação Financeira</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="pf-numero-2">Número da parcela</label>
+                <input id="pf-numero-2" type="text" placeholder="2025PF000014">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-emissao-2">Data de emissão</label>
+                <input id="pf-emissao-2" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-sei-2">Código SEI</label>
+                <input id="pf-sei-2" type="text" placeholder="18781004">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-status-2">Status</label>
+                <select id="pf-status-2">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pf-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pf-3" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Programação Financeira</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="pf-numero-3">Número da parcela</label>
+                <input id="pf-numero-3" type="text" placeholder="2025PF000014">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-emissao-3">Data de emissão</label>
+                <input id="pf-emissao-3" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-sei-3">Código SEI</label>
+                <input id="pf-sei-3" type="text" placeholder="18781004">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-status-3">Status</label>
+                <select id="pf-status-3">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pf-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-pf-4" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Programação Financeira</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="pf-numero-4">Número da parcela</label>
+                <input id="pf-numero-4" type="text" placeholder="2025PF000014">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-emissao-4">Data de emissão</label>
+                <input id="pf-emissao-4" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-sei-4">Código SEI</label>
+                <input id="pf-sei-4" type="text" placeholder="18781004">
+              </div>
+              <div class="campo col-3">
+                <label for="pf-status-4">Status</label>
+                <select id="pf-status-4">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-pf-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-nc-1" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Movimentação de Crédito</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="nc-numero-1">Número</label>
+                <input id="nc-numero-1" type="text" placeholder="2026NC000069">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-emissao-1">Data de emissão</label>
+                <input id="nc-emissao-1" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-sei-1">Código SEI</label>
+                <input id="nc-sei-1" type="text" placeholder="19118182">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-status-1">Status</label>
+                <select id="nc-status-1">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="nc-form-1">Referente ao formulário de empenho</label>
+                <input id="nc-form-1" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-nc-1">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-nc-2" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Movimentação de Crédito</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="nc-numero-2">Número</label>
+                <input id="nc-numero-2" type="text" placeholder="2026NC000069">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-emissao-2">Data de emissão</label>
+                <input id="nc-emissao-2" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-sei-2">Código SEI</label>
+                <input id="nc-sei-2" type="text" placeholder="19118182">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-status-2">Status</label>
+                <select id="nc-status-2">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="nc-form-2">Referente ao formulário de empenho</label>
+                <input id="nc-form-2" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-nc-2">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-nc-3" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Movimentação de Crédito</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="nc-numero-3">Número</label>
+                <input id="nc-numero-3" type="text" placeholder="2026NC000069">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-emissao-3">Data de emissão</label>
+                <input id="nc-emissao-3" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-sei-3">Código SEI</label>
+                <input id="nc-sei-3" type="text" placeholder="19118182">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-status-3">Status</label>
+                <select id="nc-status-3">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="nc-form-3">Referente ao formulário de empenho</label>
+                <input id="nc-form-3" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-nc-3">Excluir esta etapa</label>
+          </div>
+        </details>
+
+        <details class="cartao" id="s-nc-4" open>
+          <summary class="cartao-topo">
+            <h2>Nota de Movimentação de Crédito</h2>
+            <span class="obrigatorio">SIAFI</span>
+          </summary>
+          <div class="cartao-corpo">
+            <div class="grade">
+              <div class="campo col-3">
+                <label for="nc-numero-4">Número</label>
+                <input id="nc-numero-4" type="text" placeholder="2026NC000069">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-emissao-4">Data de emissão</label>
+                <input id="nc-emissao-4" type="date">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-sei-4">Código SEI</label>
+                <input id="nc-sei-4" type="text" placeholder="19118182">
+              </div>
+              <div class="campo col-3">
+                <label for="nc-status-4">Status</label>
+                <select id="nc-status-4">
+                  <option>Esperando</option>
+                  <option>Emitida</option>
+                </select>
+              </div>
+              <div class="campo col-4">
+                <label for="nc-form-4">Referente ao formulário de empenho</label>
+                <input id="nc-form-4" type="text" placeholder="17276745">
+              </div>
+            </div>
+            <label class="remover-etapa" for="et-nc-4">Excluir esta etapa</label>
+          </div>
+        </details>
+
+      </div><!-- fim das etapas -->
+
+      <!-- ================= OBSERVAÇÕES (sempre presente) ================= -->
+      <details class="cartao">
+        <summary class="cartao-topo">
+          <span class="numero">9</span>
+          <h2>Observações e demandas adicionais</h2>
+          <span class="obrigatorio">Preenchimento livre</span>
+        </summary>
+        <div class="cartao-corpo">
+          <div class="grade">
+            <div class="campo col-12">
+              <label for="obs">Pedidos ou situações fora do fluxo padrão</label>
+              <textarea id="obs">Solicitação de repasse do financeiro no valor de R$ 25.600,00 antes da liquidação total, feita por ofício em 19/08/2025.</textarea>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ================= AÇÕES ================= -->
+      <div class="acoes-formulario">
+        <a href="#excluir" class="botao secundario perigo">Excluir processo</a>
+        <span class="observacao" style="margin-left:14px">Protótipo: nenhum dado é salvo de verdade.</span>
+        <a href="ted-detalhe.html" class="botao secundario">Cancelar</a>
+        <button type="button" class="botao secundario">Marcar como concluído</button>
+        <button type="submit" class="botao primario">Salvar</button>
+      </div>
+
+    </form>
+
+    <!-- =============================================================
+         JANELA DE CONFIRMAÇÃO DE EXCLUSÃO
+         ============================================================= -->
+    <div class="janela" id="excluir">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa estreita">
+        <div class="janela-topo">
+          <h2>Excluir processo</h2>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo texto">
+          <p>Tem certeza que deseja excluir este processo?</p>
+          <span class="destaque">71000.019842/2025-31 — UFRRJ, TED 06/2025</span>
+          <p>Use isto apenas quando o processo tiver sido criado por engano.</p>
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Cancelar</a>
+          <a href="ted-visualizar.html" class="botao perigo">Excluir definitivamente</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.
+  </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
