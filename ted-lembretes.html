@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TED &middot; Lembretes — Sistema de Processos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ MENU LATERAL ============ -->
+    <aside class="lateral">
+      <div class="lateral-marca">
+        <span class="sigla">SP</span>
+        <span class="nome">
+          <strong>Sistema de Processos</strong>
+          Painel interno
+        </span>
+      </div>
+
+      <div class="lateral-tipo">
+        <span class="rotulo">Tipo de processo</span>
+        <div class="atual">
+          <span class="sigla-tipo">TED</span>
+          <a href="index.html" class="trocar">Trocar</a>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="ted-visualizar.html">Visualizar Processos</a>
+        <a href="ted-processos.html">Processos</a>
+        <a href="ted-lembretes.html" class="ativa">Lembretes</a>
+      </nav>
+
+      <div class="lateral-usuario">
+        <span class="avatar">T</span>
+        Tina
+      </div>
+    </aside>
+
+    <div class="conteudo">
+
+  <main class="pagina">
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Lembretes</h1>
+        <p>Cada lembrete está preso a uma pendência de um processo, não ao processo inteiro.</p>
+      </div>
+      <div class="acoes">
+        <a href="modelos-email.html" class="botao secundario">Modelos de e-mail</a>
+      </div>
+    </div>
+
+    <!-- ---- resumo ---- -->
+    <section class="resumo">
+      <div class="painel alerta">
+        <div class="rotulo">Atrasados</div>
+        <div class="valor">1</div>
+      </div>
+      <div class="painel aviso">
+        <div class="rotulo">Para hoje</div>
+        <div class="valor">2</div>
+      </div>
+      <div class="painel">
+        <div class="rotulo">Próximos</div>
+        <div class="valor">2</div>
+      </div>
+      <div class="painel ok">
+        <div class="rotulo">Enviam e-mail</div>
+        <div class="valor">3</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FILTRO POR PRAZO — mesmo truque dos rádios das outras telas
+         ============================================================ -->
+    <div class="filtro-etapas">
+
+      <input type="radio" name="prazo" id="l-todos" checked>
+      <input type="radio" name="prazo" id="l-atrasado">
+      <input type="radio" name="prazo" id="l-hoje">
+      <input type="radio" name="prazo" id="l-proximo">
+
+      <div class="chips">
+        <label class="chip" for="l-todos">Todos <span class="conta">5</span></label>
+        <label class="chip" for="l-atrasado">Atrasados <span class="conta">1</span></label>
+        <label class="chip" for="l-hoje">Para hoje <span class="conta">2</span></label>
+        <label class="chip" for="l-proximo">Próximos <span class="conta">2</span></label>
+      </div>
+
+      <section class="cartao">
+        <div class="cartao-topo">
+          <h2>Lembretes ativos</h2>
+          <span class="obrigatorio">5 lembretes</span>
+        </div>
+
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Próximo aviso</th>
+              <th>Processo</th>
+              <th>Lembrar do quê</th>
+              <th>Repetição</th>
+              <th>Avisar por e-mail</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr class="p-atrasado">
+              <td>
+                <div><span class="selo vermelho">Atrasado</span></div>
+                <div class="secundario">05/09/2026</div>
+              </td>
+              <td>
+                <div class="principal">71000.022108/2025-45</div>
+                <div class="secundario">UFF — TED 08/2025</div>
+              </td>
+              <td>
+                <div>Certificação Orçamentária</div>
+                <div class="pendente">Falta a assinatura de Alison (Ordenador)</div>
+              </td>
+              <td class="secundario">a cada 3 dias</td>
+              <td>Sim</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Abrir</a><a href="#excluir-lembrete" class="botao discreto pequeno perigo">Excluir</a></td>
+            </tr>
+
+            <tr class="p-hoje">
+              <td>
+                <div><span class="selo ambar">Hoje</span></div>
+                <div class="secundario">08/09/2026</div>
+              </td>
+              <td>
+                <div class="principal">71000.023641/2025-60</div>
+                <div class="secundario">UNIRIO — TED 09/2025</div>
+              </td>
+              <td>
+                <div>Verificação de Adimplência</div>
+                <div class="pendente">Faltam as assinaturas de Manoel e Tina</div>
+              </td>
+              <td class="secundario">a cada 7 dias</td>
+              <td>Sim</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Abrir</a><a href="#excluir-lembrete" class="botao discreto pequeno perigo">Excluir</a></td>
+            </tr>
+
+            <tr class="p-hoje">
+              <td>
+                <div><span class="selo ambar">Hoje</span></div>
+                <div class="secundario">08/09/2026</div>
+              </td>
+              <td>
+                <div class="principal">71000.019842/2025-31</div>
+                <div class="secundario">UFRRJ — TED 06/2025</div>
+              </td>
+              <td>
+                <div>Nota de Programação Financeira</div>
+                <div class="pendente">Falta a data de emissão</div>
+              </td>
+              <td class="secundario">uma vez</td>
+              <td class="secundario">Não enviar</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Abrir</a><a href="#excluir-lembrete" class="botao discreto pequeno perigo">Excluir</a></td>
+            </tr>
+
+            <tr class="p-proximo">
+              <td>
+                <div><span class="selo azul">Amanhã</span></div>
+                <div class="secundario">09/09/2026</div>
+              </td>
+              <td>
+                <div class="principal">71000.026566/2026-57</div>
+                <div class="secundario">IFPI — TED 17/2026</div>
+              </td>
+              <td>
+                <div><span class="selo azul">Processo inteiro</span></div>
+                <div class="secundario">Só avisar que há pendências</div>
+              </td>
+              <td class="secundario">uma vez</td>
+              <td>Sim</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Abrir</a><a href="#excluir-lembrete" class="botao discreto pequeno perigo">Excluir</a></td>
+            </tr>
+
+            <tr class="p-proximo">
+              <td>
+                <div><span class="selo cinza">Em 7 dias</span></div>
+                <div class="secundario">15/09/2026</div>
+              </td>
+              <td>
+                <div class="principal">71000.021477/2025-09</div>
+                <div class="secundario">UFRJ — TED 07/2025</div>
+              </td>
+              <td>
+                <div><span class="selo azul">Processo inteiro</span></div>
+                <div class="secundario">Listar todas as pendências (4)</div>
+              </td>
+              <td class="secundario">a cada 15 dias</td>
+              <td class="secundario">Não enviar</td>
+              <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Abrir</a><a href="#excluir-lembrete" class="botao discreto pequeno perigo">Excluir</a></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </section>
+
+    </div><!-- fim do filtro -->
+
+    <!-- =============================================================
+         JANELA DE CONFIRMAÇÃO
+         ============================================================= -->
+    <div class="janela" id="excluir-lembrete">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa estreita">
+        <div class="janela-topo">
+          <h2>Excluir lembrete</h2>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo texto">
+          <p>Este lembrete deixa de avisar. A pendência continua existindo no processo —
+             só o aviso é que some.</p>
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Cancelar</a>
+          <a href="ted-lembretes.html" class="botao perigo">Excluir lembrete</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.
+  </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>

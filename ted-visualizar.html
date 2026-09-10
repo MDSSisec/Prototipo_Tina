@@ -31,6 +31,7 @@
       <nav class="menu">
         <a href="ted-visualizar.html" class="ativa">Visualizar Processos</a>
         <a href="ted-processos.html">Processos</a>
+        <a href="ted-lembretes.html">Lembretes</a>
       </nav>
 
       <div class="lateral-usuario">
@@ -52,6 +53,41 @@
         <a href="ted-novo.html" class="botao primario">+ Cadastrar processo</a>
       </div>
     </div>
+
+    <!-- ============================================================
+         AVISO DOS LEMBRETES DO DIA
+         Cada linha é uma pendência específica, não o processo inteiro.
+         ============================================================ -->
+    <section class="aviso-lembretes">
+      <div class="topo-aviso">
+        <h2>3 lembretes precisam de atenção</h2>
+        <a href="ted-lembretes.html" class="ver-todos">Ver todos os lembretes</a>
+      </div>
+
+      <div class="lembrete-linha">
+        <span class="quando-selo"><span class="selo vermelho">Atrasado</span></span>
+        <span class="processo">71000.022108/2025-45</span>
+        <span>Certificação Orçamentária —
+          <span class="falta">falta a assinatura de Alison (Ordenador)</span></span>
+        <a href="ted-detalhe.html" class="abrir">Abrir</a>
+      </div>
+
+      <div class="lembrete-linha">
+        <span class="quando-selo"><span class="selo ambar">Hoje</span></span>
+        <span class="processo">71000.023641/2025-60</span>
+        <span>Verificação de Adimplência —
+          <span class="falta">faltam as assinaturas de Manoel e Tina</span></span>
+        <a href="ted-detalhe.html" class="abrir">Abrir</a>
+      </div>
+
+      <div class="lembrete-linha">
+        <span class="quando-selo"><span class="selo ambar">Hoje</span></span>
+        <span class="processo">71000.019842/2025-31</span>
+        <span>Nota de Programação Financeira —
+          <span class="falta">falta a data de emissão</span></span>
+        <a href="ted-detalhe.html" class="abrir">Abrir</a>
+      </div>
+    </section>
 
     <!-- ---- painéis de resumo ---- -->
     <section class="resumo">
@@ -129,7 +165,6 @@
       <input type="radio" name="etapa" id="f-adimplencia">
       <input type="radio" name="etapa" id="f-certificacao">
       <input type="radio" name="etapa" id="f-empenho">
-      <input type="radio" name="etapa" id="f-nota">
       <input type="radio" name="etapa" id="f-pagamento">
       <input type="radio" name="etapa" id="f-programacao">
       <input type="radio" name="etapa" id="f-movimentacao">
@@ -139,8 +174,7 @@
         <label class="chip" for="f-criado">Processo criado <span class="conta">1</span></label>
         <label class="chip" for="f-adimplencia">Verificação de Adimplência <span class="conta">1</span></label>
         <label class="chip" for="f-certificacao">Certificação Orçamentária <span class="conta">1</span></label>
-        <label class="chip" for="f-empenho">Formulário de Empenho <span class="conta">1</span></label>
-        <label class="chip" for="f-nota">Nota de Empenho <span class="conta">2</span></label>
+        <label class="chip" for="f-empenho">Formulário de Empenho <span class="conta">3</span></label>
         <label class="chip" for="f-pagamento">Formulário de Pagamento <span class="conta">1</span></label>
         <label class="chip" for="f-programacao">Nota de Programação Financeira <span class="conta">1</span></label>
         <label class="chip" for="f-movimentacao">Nota de Movimentação de Crédito <span class="conta">1</span></label>
@@ -166,12 +200,12 @@
           </thead>
           <tbody>
 
-            <tr class="e-nota">
+            <tr class="e-empenho">
               <td>
                 <div class="principal">71000.026566/2026-57</div>
                 <div class="secundario">IFPI — TED 17/2026 · UG 158146/26431 · SIORG 434</div>
               </td>
-              <td><span class="selo azul">Nota de Empenho</span></td>
+              <td><span class="selo azul">Formulário de Empenho</span></td>
               <td class="pendencias">
                 <span class="pendente">Quando emitirem o empenho — solicitar financeiro</span>
                 <button type="button" class="mais">
@@ -189,8 +223,8 @@
               <td class="secundario">a definir</td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra"><span style="width:67%"></span></div>
-                  <span>6/9</span>
+                  <div class="barra"><span style="width:50%"></span></div>
+                  <span>4/8</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -220,8 +254,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra quase"><span style="width:89%"></span></div>
-                  <span>8/9</span>
+                  <div class="barra quase"><span style="width:88%"></span></div>
+                  <span>7/8</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -251,8 +285,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra quase"><span style="width:88%"></span></div>
-                  <span>7/8</span>
+                  <div class="barra quase"><span style="width:86%"></span></div>
+                  <span>6/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -284,19 +318,19 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra"><span style="width:75%"></span></div>
-                  <span>6/8</span>
+                  <div class="barra"><span style="width:71%"></span></div>
+                  <span>5/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
             </tr>
 
-            <tr class="e-nota">
+            <tr class="e-empenho">
               <td>
                 <div class="principal">71000.021477/2025-09</div>
                 <div class="secundario">UFRJ — TED 07/2025 · UG 153163/15236 · SIORG 429</div>
               </td>
-              <td><span class="selo azul">Nota de Empenho</span></td>
+              <td><span class="selo azul">Formulário de Empenho</span></td>
               <td class="pendencias">
                 <span class="pendente">Falta 1 de 3 notas de empenho</span>
                 <button type="button" class="mais">
@@ -318,8 +352,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra"><span style="width:63%"></span></div>
-                  <span>5/8</span>
+                  <div class="barra"><span style="width:57%"></span></div>
+                  <span>4/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -353,8 +387,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra inicio"><span style="width:50%"></span></div>
-                  <span>4/8</span>
+                  <div class="barra inicio"><span style="width:43%"></span></div>
+                  <span>3/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -389,8 +423,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra inicio"><span style="width:38%"></span></div>
-                  <span>3/8</span>
+                  <div class="barra inicio"><span style="width:43%"></span></div>
+                  <span>3/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -426,8 +460,8 @@
               </td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra inicio"><span style="width:25%"></span></div>
-                  <span>2/8</span>
+                  <div class="barra inicio"><span style="width:29%"></span></div>
+                  <span>2/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-editar.html" class="botao discreto pequeno">Editar</a></td>
@@ -463,8 +497,8 @@
               <td class="secundario">a definir</td>
               <td>
                 <div class="progresso-linha">
-                  <div class="barra inicio"><span style="width:13%"></span></div>
-                  <span>1/8</span>
+                  <div class="barra inicio"><span style="width:14%"></span></div>
+                  <span>1/7</span>
                 </div>
               </td>
               <td style="white-space:nowrap"><a href="ted-detalhe.html" class="botao discreto pequeno">Visualizar</a><a href="ted-novo.html" class="botao discreto pequeno">Editar</a></td>

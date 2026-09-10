@@ -31,6 +31,7 @@
       <nav class="menu">
         <a href="ted-visualizar.html">Visualizar Processos</a>
         <a href="ted-processos.html" class="ativa">Processos</a>
+        <a href="ted-lembretes.html">Lembretes</a>
       </nav>
 
       <div class="lateral-usuario">
@@ -127,7 +128,7 @@
 
         <div class="progresso-linha" style="margin-top:22px">
           <div class="barra quase" style="flex:1"><span style="width:100%"></span></div>
-          <span>8 de 8 etapas concluídas</span>
+          <span>7 de 7 etapas concluídas</span>
         </div>
       </div>
     </section>
@@ -158,14 +159,7 @@
           <li class="etapa concluida">
             <div class="titulo-etapa">
               Formulário de Empenho / Descentralização
-              <span class="selo verde">Concluído</span>
-            </div>
-          </li>
-
-          <li class="etapa concluida">
-            <div class="titulo-etapa">
-              Nota de Empenho
-              <span class="selo verde">Todas emitidas</span>
+              <span class="selo verde">Concluído &middot; 1 nota emitida</span>
             </div>
           </li>
 
@@ -212,8 +206,8 @@
       <input type="radio" name="visao" id="v-na">
 
       <div class="chips">
-        <label class="chip" for="v-tudo">Todos os documentos <span class="conta">7</span></label>
-        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">6</span></label>
+        <label class="chip" for="v-tudo">Todos os documentos <span class="conta">6</span></label>
+        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">5</span></label>
         <label class="chip" for="v-pendente">Com pendência <span class="conta">0</span></label>
         <label class="chip" for="v-na">Não se aplica <span class="conta">1</span></label>
       </div>
@@ -284,7 +278,7 @@
           <summary class="cartao-topo">
             <span class="numero">5</span>
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio"><span class="selo verde">1 formulário</span></span>
+            <span class="obrigatorio"><span class="selo verde">1 formulário &middot; 1 nota</span></span>
           </summary>
           <div class="cartao-corpo" style="padding:0">
             <table class="tabela">
@@ -301,24 +295,16 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </details>
 
-        <!-- ---- 6. Nota de Empenho ---- -->
-        <details class="cartao v-ok">
-          <summary class="cartao-topo">
-            <span class="numero">6</span>
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio"><span class="selo verde">Todas emitidas</span></span>
-          </summary>
-          <div class="cartao-corpo" style="padding:0">
+            <div class="sub-secao">
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+            </div>
             <table class="tabela">
               <thead>
                 <tr>
                   <th>Número</th>
                   <th>Data de emissão</th>
                   <th>Valor</th>
-                  <th>Referente ao formulário</th>
                 </tr>
               </thead>
               <tbody>
@@ -326,17 +312,16 @@
                   <td class="principal">2025NE000602</td>
                   <td>12/05/2025</td>
                   <td>R$ 640.000,00</td>
-                  <td>16991028</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </details>
 
-        <!-- ---- 7. Formulário de Pagamento ---- -->
+        <!-- ---- 6. Formulário de Pagamento ---- -->
         <details class="cartao v-ok">
           <summary class="cartao-topo">
-            <span class="numero">7</span>
+            <span class="numero">6</span>
             <h2>Formulário de Pagamento / Repasse Financeiro</h2>
             <span class="obrigatorio"><span class="selo verde">Enviado ao SGT</span></span>
           </summary>
@@ -366,10 +351,10 @@
           </div>
         </details>
 
-        <!-- ---- 8. Nota de Programação Financeira ---- -->
+        <!-- ---- 7. Nota de Programação Financeira ---- -->
         <details class="cartao v-ok">
           <summary class="cartao-topo">
-            <span class="numero">8</span>
+            <span class="numero">7</span>
             <h2>Nota de Programação Financeira</h2>
             <span class="obrigatorio"><span class="selo verde">Emitida</span></span>
           </summary>
@@ -395,10 +380,10 @@
           </div>
         </details>
 
-        <!-- ---- 9. Nota de Movimentação de Crédito ---- -->
+        <!-- ---- 8. Nota de Movimentação de Crédito ---- -->
         <details class="cartao v-na">
           <summary class="cartao-topo">
-            <span class="numero">9</span>
+            <span class="numero">8</span>
             <h2>Nota de Movimentação de Crédito</h2>
             <span class="obrigatorio"><span class="selo cinza">Não se aplica</span></span>
           </summary>
@@ -412,10 +397,10 @@
       </div><!-- fim da lista de documentos -->
     </div><!-- fim do filtro -->
 
-    <!-- ================= 10. OBSERVAÇÕES ================= -->
+    <!-- ================= 9. OBSERVAÇÕES ================= -->
     <details class="cartao">
       <summary class="cartao-topo">
-        <span class="numero">10</span>
+        <span class="numero">9</span>
         <h2>Observações e demandas adicionais</h2>
         <span class="obrigatorio">Nenhum registro</span>
       </summary>

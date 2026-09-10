@@ -31,6 +31,7 @@
       <nav class="menu">
         <a href="ted-visualizar.html" class="ativa">Visualizar Processos</a>
         <a href="ted-processos.html">Processos</a>
+        <a href="ted-lembretes.html">Lembretes</a>
       </nav>
 
       <div class="lateral-usuario">
@@ -54,8 +55,9 @@
       </div>
       <div class="acoes">
         <span class="selo ambar" style="align-self:center">Aguardando emissão da NPF</span>
+        <a href="#lembrete" class="botao secundario">Criar lembrete</a>
         <a href="#historico" class="botao secundario">Histórico de modificações</a>
-        <a href="ted-novo.html" class="botao secundario">Editar</a>
+        <a href="ted-editar.html" class="botao secundario">Editar</a>
         <a href="ted-processos.html" class="botao primario">Marcar como concluído</a>
       </div>
     </div>
@@ -137,8 +139,8 @@
         </div>
 
         <div class="progresso-linha" style="margin-top:22px">
-          <div class="barra quase" style="flex:1"><span style="width:88%"></span></div>
-          <span>7 de 8 etapas concluídas</span>
+          <div class="barra quase" style="flex:1"><span style="width:86%"></span></div>
+          <span>6 de 7 etapas concluídas</span>
         </div>
       </div>
     </section>
@@ -169,14 +171,7 @@
           <li class="etapa concluida">
             <div class="titulo-etapa">
               Formulário de Empenho / Descentralização
-              <span class="selo verde">Concluído</span>
-            </div>
-          </li>
-
-          <li class="etapa concluida">
-            <div class="titulo-etapa">
-              Nota de Empenho
-              <span class="selo verde">Todas emitidas</span>
+              <span class="selo verde">Concluído &middot; 1 nota emitida</span>
             </div>
           </li>
 
@@ -201,6 +196,7 @@
             </div>
             <div class="detalhes">
               <span class="pendente">Falta a data de emissão — aguardando o Financeiro</span>
+              <a href="#lembrete" class="btn-lembrar">Criar lembrete</a>
             </div>
           </li>
 
@@ -235,8 +231,8 @@
       <input type="radio" name="visao" id="v-na">
 
       <div class="chips">
-        <label class="chip" for="v-tudo">Todos os documentos <span class="conta">7</span></label>
-        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">5</span></label>
+        <label class="chip" for="v-tudo">Todos os documentos <span class="conta">6</span></label>
+        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">4</span></label>
         <label class="chip" for="v-pendente">Com pendência <span class="conta">1</span></label>
         <label class="chip" for="v-na">Não se aplica <span class="conta">1</span></label>
       </div>
@@ -303,7 +299,7 @@
           <summary class="cartao-topo">
             <span class="numero">5</span>
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio"><span class="selo verde">1 formulário</span></span>
+            <span class="obrigatorio"><span class="selo verde">1 formulário &middot; 1 nota</span></span>
           </summary>
           <div class="cartao-corpo" style="padding:0">
             <table class="tabela">
@@ -320,24 +316,16 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </details>
 
-        <!-- ---- 6. Nota de Empenho ---- -->
-        <details class="cartao v-ok">
-          <summary class="cartao-topo">
-            <span class="numero">6</span>
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio"><span class="selo verde">Todas emitidas</span></span>
-          </summary>
-          <div class="cartao-corpo" style="padding:0">
+            <div class="sub-secao">
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+            </div>
             <table class="tabela">
               <thead>
                 <tr>
                   <th>Número</th>
                   <th>Data de emissão</th>
                   <th>Valor</th>
-                  <th>Referente ao formulário</th>
                 </tr>
               </thead>
               <tbody>
@@ -345,17 +333,16 @@
                   <td class="principal">2025NE000751</td>
                   <td>04/08/2025</td>
                   <td>R$ 2.767,01</td>
-                  <td>17276745</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </details>
 
-        <!-- ---- 7. Formulário de Pagamento ---- -->
+        <!-- ---- 6. Formulário de Pagamento ---- -->
         <details class="cartao v-ok">
           <summary class="cartao-topo">
-            <span class="numero">7</span>
+            <span class="numero">6</span>
             <h2>Formulário de Pagamento / Repasse Financeiro</h2>
             <span class="obrigatorio"><span class="selo verde">Enviado ao SGT</span></span>
           </summary>
@@ -388,12 +375,16 @@
         <!-- ---- 8. Nota de Programação Financeira (a que falta) ---- -->
         <details class="cartao v-falta" open>
           <summary class="cartao-topo">
-            <span class="numero">8</span>
+            <span class="numero">7</span>
             <h2>Nota de Programação Financeira</h2>
             <span class="obrigatorio"><span class="selo ambar">Esperando</span></span>
           </summary>
           <div class="cartao-corpo">
             <div class="dados">
+              <div class="item">
+                <div class="rotulo">Lembrete desta pendência</div>
+                <div class="conteudo"><a href="#lembrete" class="btn-lembrar">Criar lembrete</a></div>
+              </div>
               <div class="item">
                 <div class="rotulo">Número da parcela</div>
                 <div class="conteudo">2025PF000014</div>
@@ -414,10 +405,10 @@
           </div>
         </details>
 
-        <!-- ---- 9. Nota de Movimentação de Crédito ---- -->
+        <!-- ---- 8. Nota de Movimentação de Crédito ---- -->
         <details class="cartao v-na">
           <summary class="cartao-topo">
-            <span class="numero">9</span>
+            <span class="numero">8</span>
             <h2>Nota de Movimentação de Crédito</h2>
             <span class="obrigatorio"><span class="selo cinza">Não se aplica</span></span>
           </summary>
@@ -432,10 +423,10 @@
       </div><!-- fim da lista de documentos -->
     </div><!-- fim do filtro -->
 
-    <!-- ================= 10. OBSERVAÇÕES ================= -->
+    <!-- ================= 9. OBSERVAÇÕES ================= -->
     <details class="cartao" open>
       <summary class="cartao-topo">
-        <span class="numero">10</span>
+        <span class="numero">9</span>
         <h2>Observações e demandas adicionais</h2>
         <span class="obrigatorio">1 registro</span>
       </summary>
@@ -450,7 +441,165 @@
     <div class="acoes-formulario">
       <span class="observacao">Protótipo: nenhum dado é salvo de verdade.</span>
       <a href="ted-visualizar.html" class="botao secundario">Voltar</a>
-      <a href="ted-novo.html" class="botao primario">Editar</a>
+      <a href="ted-editar.html" class="botao primario">Editar</a>
+    </div>
+
+
+    <!-- =============================================================
+         JANELA DE CRIAR LEMBRETE
+         A escolha entre "numa data" e "a cada N dias" usa dois rádios
+         escondidos: o marcado mostra o seu bloco de campos.
+         ============================================================= -->
+    <div class="janela" id="lembrete">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa estreita">
+        <div class="janela-topo">
+          <h2>Criar lembrete</h2>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo texto escolha-quando">
+
+          <!-- os quatro rádios de escopo vêm antes de tudo:
+               é a ordem que permite ao CSS combinar as respostas -->
+          <input type="radio" name="escopo" id="e-pendencia" checked>
+          <input type="radio" name="escopo" id="e-processo">
+          <input type="radio" name="detalhe" id="n-tudo" checked>
+          <input type="radio" name="detalhe" id="n-resumo">
+
+          <input type="radio" name="quando" id="q-data" checked>
+          <input type="radio" name="quando" id="q-repete">
+
+          <p style="font-weight:600">Lembrar do quê?</p>
+
+          <div class="opcoes-quando opcoes-escopo">
+            <label class="opcao-quando" for="e-pendencia">Só desta pendência</label>
+            <label class="opcao-quando" for="e-processo">Do processo inteiro</label>
+          </div>
+
+          <div class="so-pendencia">
+            <span class="destaque" style="background:var(--ambar-bg);color:var(--ambar-txt)">
+              Nota de Programação Financeira &mdash; falta a data de emissão
+            </span>
+          </div>
+
+          <div class="so-processo">
+            <span class="destaque" style="background:var(--ambar-bg);color:var(--ambar-txt)">
+              71000.019842/2025-31 &mdash; UFRRJ, TED 06/2025
+            </span>
+          </div>
+
+          <div class="bloco-detalhe">
+            <p style="margin-top:16px;font-weight:600">O que o e-mail deve dizer?</p>
+            <div class="opcoes-quando opcoes-detalhe">
+              <label class="opcao-quando" for="n-tudo">Listar todas as pendências</label>
+              <label class="opcao-quando" for="n-resumo">Só avisar que há pendências</label>
+            </div>
+          </div>
+
+          <p style="margin-top:16px;font-weight:600">Quando avisar?</p>
+
+          <div class="opcoes-quando">
+            <label class="opcao-quando" for="q-data">Numa data</label>
+            <label class="opcao-quando" for="q-repete">A cada X dias</label>
+          </div>
+
+          <div class="campos-quando para-data">
+            <div class="grade">
+              <div class="campo col-6">
+                <label for="lem-data">Data do aviso</label>
+                <input id="lem-data" type="date" value="2026-09-15">
+              </div>
+            </div>
+          </div>
+
+          <div class="campos-quando para-repete">
+            <div class="grade">
+              <div class="campo col-4">
+                <label for="lem-dias">Repetir a cada</label>
+                <input id="lem-dias" type="number" value="7" min="1">
+              </div>
+              <div class="campo col-8">
+                <label for="lem-ate">Até quando</label>
+                <select id="lem-ate">
+                  <option>Até esta pendência ser resolvida</option>
+                  <option>Até eu excluir o lembrete</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="escolha-email">
+
+            <div class="assinaturas" style="margin-top:18px">
+              <label class="assinatura">
+                <input type="checkbox" class="liga-email" checked>
+                Avisar também por e-mail
+              </label>
+            </div>
+
+            <div class="bloco-email">
+              <span class="titulo-sub">Para quem</span>
+              <p style="margin:0;font-size:13.5px">
+                O aviso vai para o seu e-mail: <strong>tina@exemplo.gov.br</strong>
+              </p>
+
+              <div class="grade" style="margin-top:16px">
+                <div class="campo col-12">
+                  <label for="lem-modelo">Modelo do e-mail</label>
+                  <select id="lem-modelo">
+                    <option>Padrão do sistema</option>
+                    <option selected>Cobrança de assinatura</option>
+                    <option>Aviso de prazo</option>
+                    <option>Repasse financeiro</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- uma prévia para cada combinação de respostas -->
+              <div class="previa-email previa-pendencia">
+                <p class="assunto">Assunto: Pendência no processo 71000.019842/2025-31</p>
+                <p>Olá,</p>
+                <p>O processo <strong>71000.019842/2025-31</strong> (UFRRJ — TED 06/2025)
+                   está parado na etapa <strong>Nota de Programação Financeira</strong>.</p>
+                <p>Falta: <strong>a data de emissão</strong>.</p>
+                <p>Atenciosamente,<br>Tina</p>
+              </div>
+
+              <div class="previa-email previa-tudo">
+                <p class="assunto">Assunto: Pendências do processo 71000.019842/2025-31</p>
+                <p>Olá,</p>
+                <p>O processo <strong>71000.019842/2025-31</strong> (UFRRJ — TED 06/2025)
+                   tem as seguintes pendências:</p>
+                <ul>
+                  <li>Nota de Programação Financeira — falta a data de emissão</li>
+                  <li>Conclusão do processo — aguardando a emissão da NPF</li>
+                </ul>
+                <p>Progresso: 6 de 7 etapas concluídas.</p>
+                <p>Atenciosamente,<br>Tina</p>
+              </div>
+
+              <div class="previa-email previa-resumo">
+                <p class="assunto">Assunto: Pendências do processo 71000.019842/2025-31</p>
+                <p>Olá,</p>
+                <p>O processo <strong>71000.019842/2025-31</strong> (UFRRJ — TED 06/2025)
+                   ainda tem pendências em aberto.</p>
+                <p>Atenciosamente,<br>Tina</p>
+              </div>
+
+              <a href="modelos-email.html" class="gerenciar">Gerenciar modelos de e-mail</a>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Cancelar</a>
+          <a href="ted-lembretes.html" class="botao primario">Criar lembrete</a>
+        </div>
+      </div>
     </div>
 
     <!-- =============================================================

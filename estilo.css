@@ -885,6 +885,230 @@ a { color: var(--primaria); }
   flex: none;
 }
 
+/* =========================================================
+   LEMBRETES
+   ========================================================= */
+
+/* aviso no topo da tela de acompanhamento */
+.aviso-lembretes {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 4px solid #d97706;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 16px 18px;
+  margin-bottom: 22px;
+}
+
+.aviso-lembretes .topo-aviso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.aviso-lembretes h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.aviso-lembretes .ver-todos {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.aviso-lembretes .ver-todos:hover { text-decoration: underline; }
+
+.lembrete-linha {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 0;
+  border-top: 1px dashed var(--borda);
+  font-size: 13.5px;
+  flex-wrap: wrap;
+}
+
+.lembrete-linha .quando-selo {
+  flex: none;
+  width: 96px;
+}
+
+.lembrete-linha .processo {
+  font-weight: 600;
+  flex: none;
+}
+
+.lembrete-linha .falta {
+  color: var(--vermelho-txt);
+  font-weight: 600;
+}
+
+.lembrete-linha .abrir {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* botão de criar lembrete, ao lado de uma pendência */
+.btn-lembrar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border: 1px solid #f0c88a;
+  background: var(--ambar-bg);
+  color: var(--ambar-txt);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-lembrar:hover { background: #fde9b8; border-color: #e0ac5c; }
+
+/* escolha entre data única e repetição, dentro da janela */
+.escolha-quando > input[type="radio"] { display: none; }
+
+.opcoes-quando {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.opcao-quando {
+  flex: 1;
+  border: 1px solid var(--borda-forte);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+}
+
+.opcao-quando:hover { border-color: var(--primaria); }
+
+#q-data:checked   ~ .opcoes-quando label[for="q-data"],
+#q-repete:checked ~ .opcoes-quando label[for="q-repete"] {
+  background: var(--primaria);
+  border-color: var(--primaria);
+  color: #fff;
+}
+
+/* bloco de destinatários do e-mail.
+   Ele nasce visível; a regra abaixo o esconde quando a caixa
+   "avisar por e-mail" está desmarcada. Feito nessa ordem de
+   propósito: em navegador antigo, que não entende :has(),
+   a regra é ignorada e o bloco simplesmente continua à vista. */
+.bloco-email {
+  margin-top: 14px;
+  padding: 14px;
+  background: #fbfcfe;
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+}
+
+.escolha-email:has(input.liga-email:not(:checked)) .bloco-email { display: none; }
+
+/* prévia do e-mail que vai sair */
+.previa-email {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.previa-email .assunto {
+  font-weight: 700;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.previa-email p { margin: 0 0 8px; }
+.previa-email p:last-child { margin-bottom: 0; }
+.previa-email .variavel { background: var(--ambar-bg); color: var(--ambar-txt); padding: 0 4px; border-radius: 4px; font-weight: 600; }
+
+/* etiquetas de variável no editor de modelos */
+.variaveis { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+
+.variaveis code {
+  background: var(--ambar-bg);
+  color: var(--ambar-txt);
+  border: 1px solid #f0c88a;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bloco-email .gerenciar {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.bloco-email .gerenciar:hover { text-decoration: underline; }
+
+/* =========================================================
+   ESCOPO DO LEMBRETE — uma pendência ou o processo inteiro
+   Duas perguntas encadeadas. O CSS combina as duas respostas
+   ligando os dois rádios no mesmo seletor:
+   #e-processo:checked ~ #n-resumo:checked ~ (o que mostrar)
+   ========================================================= */
+.escolha-quando > input[type="radio"] { display: none; }
+
+.so-pendencia,
+.so-processo,
+.bloco-detalhe { display: none; }
+
+#e-pendencia:checked ~ .so-pendencia { display: block; }
+#e-processo:checked  ~ .so-processo,
+#e-processo:checked  ~ .bloco-detalhe { display: block; }
+
+#e-pendencia:checked ~ .opcoes-escopo label[for="e-pendencia"],
+#e-processo:checked  ~ .opcoes-escopo label[for="e-processo"],
+#n-tudo:checked      ~ .bloco-detalhe .opcoes-detalhe label[for="n-tudo"],
+#n-resumo:checked    ~ .bloco-detalhe .opcoes-detalhe label[for="n-resumo"] {
+  background: var(--primaria);
+  border-color: var(--primaria);
+  color: #fff;
+}
+
+/* prévias: uma para cada combinação de respostas */
+.previa-email { display: none; }
+
+#e-pendencia:checked ~ .escolha-email .previa-pendencia,
+#e-processo:checked ~ #n-tudo:checked   ~ .escolha-email .previa-tudo,
+#e-processo:checked ~ #n-resumo:checked ~ .escolha-email .previa-resumo {
+  display: block;
+}
+
+.previa-email ul { margin: 6px 0 8px; padding-left: 20px; }
+.previa-email li { margin-bottom: 3px; }
+
+/* corpo de janela que segura um formulário */
+.janela-corpo.formulario { padding: 20px; }
+
+.campos-quando { display: none; }
+
+#q-data:checked   ~ .campos-quando.para-data,
+#q-repete:checked ~ .campos-quando.para-repete { display: block; }
+
 /* ---------- 16. Rodapé ---------- */
 .rodape {
   border-top: 1px solid var(--borda);
@@ -958,6 +1182,10 @@ a { color: var(--primaria); }
 #h-todos:checked         ~ .chips label[for="h-todos"],
 #h-concluido:checked     ~ .chips label[for="h-concluido"],
 #h-alteracao:checked     ~ .chips label[for="h-alteracao"],
+#l-todos:checked         ~ .chips label[for="l-todos"],
+#l-atrasado:checked      ~ .chips label[for="l-atrasado"],
+#l-hoje:checked          ~ .chips label[for="l-hoje"],
+#l-proximo:checked       ~ .chips label[for="l-proximo"],
 #v-tudo:checked          ~ .chips label[for="v-tudo"],
 #v-feito:checked         ~ .chips label[for="v-feito"],
 #v-pendente:checked      ~ .chips label[for="v-pendente"],
@@ -979,6 +1207,10 @@ a { color: var(--primaria); }
 #h-todos:checked         ~ .chips label[for="h-todos"] .conta,
 #h-concluido:checked     ~ .chips label[for="h-concluido"] .conta,
 #h-alteracao:checked     ~ .chips label[for="h-alteracao"] .conta,
+#l-todos:checked         ~ .chips label[for="l-todos"] .conta,
+#l-atrasado:checked      ~ .chips label[for="l-atrasado"] .conta,
+#l-hoje:checked          ~ .chips label[for="l-hoje"] .conta,
+#l-proximo:checked       ~ .chips label[for="l-proximo"] .conta,
 #v-tudo:checked          ~ .chips label[for="v-tudo"] .conta,
 #v-feito:checked         ~ .chips label[for="v-feito"] .conta,
 #v-pendente:checked      ~ .chips label[for="v-pendente"] .conta,
@@ -997,7 +1229,10 @@ a { color: var(--primaria); }
 #f-programacao:checked   ~ .cartao tbody tr:not(.e-programacao),
 #f-movimentacao:checked  ~ .cartao tbody tr:not(.e-movimentacao),
 #h-concluido:checked     ~ .cartao tbody tr:not(.s-concluido),
-#h-alteracao:checked     ~ .cartao tbody tr:not(.s-alteracao) {
+#h-alteracao:checked     ~ .cartao tbody tr:not(.s-alteracao),
+#l-atrasado:checked      ~ .cartao tbody tr:not(.p-atrasado),
+#l-hoje:checked          ~ .cartao tbody tr:not(.p-hoje),
+#l-proximo:checked       ~ .cartao tbody tr:not(.p-proximo) {
   display: none;
 }
 
@@ -1122,10 +1357,6 @@ label.adicionar {
 #et-emp-2:checked ~ .etapas > #s-emp-2,
 #et-emp-3:checked ~ .etapas > #s-emp-3,
 #et-emp-4:checked ~ .etapas > #s-emp-4,
-#et-ne-1:checked ~ .etapas > #s-ne-1,
-#et-ne-2:checked ~ .etapas > #s-ne-2,
-#et-ne-3:checked ~ .etapas > #s-ne-3,
-#et-ne-4:checked ~ .etapas > #s-ne-4,
 #et-pag-1:checked ~ .etapas > #s-pag-1,
 #et-pag-2:checked ~ .etapas > #s-pag-2,
 #et-pag-3:checked ~ .etapas > #s-pag-3,
@@ -1143,8 +1374,7 @@ label.adicionar {
    Três regras por vaga, nesta ordem (a última vence o empate):
    1. aparece quando a vaga anterior já foi usada;
    2. some quando ela própria é usada;
-   3. some se alguma vaga anterior estiver livre — é isso que
-      evita dois botões iguais depois de excluir uma do meio. */
+   3. some se alguma vaga anterior estiver livre. */
 .painel-adicionar label[for="et-adim-2"],
 .painel-adicionar label[for="et-adim-3"],
 .painel-adicionar label[for="et-adim-4"],
@@ -1154,9 +1384,6 @@ label.adicionar {
 .painel-adicionar label[for="et-emp-2"],
 .painel-adicionar label[for="et-emp-3"],
 .painel-adicionar label[for="et-emp-4"],
-.painel-adicionar label[for="et-ne-2"],
-.painel-adicionar label[for="et-ne-3"],
-.painel-adicionar label[for="et-ne-4"],
 .painel-adicionar label[for="et-pag-2"],
 .painel-adicionar label[for="et-pag-3"],
 .painel-adicionar label[for="et-pag-4"],
@@ -1209,20 +1436,6 @@ label.adicionar {
 #et-emp-2:not(:checked) ~ .painel-adicionar label[for="et-emp-4"] { display: none; }
 #et-emp-3:not(:checked) ~ .painel-adicionar label[for="et-emp-4"] { display: none; }
 
-#et-ne-1:checked ~ .painel-adicionar label[for="et-ne-2"] { display: inline-flex; }
-#et-ne-2:checked ~ .painel-adicionar label[for="et-ne-3"] { display: inline-flex; }
-#et-ne-3:checked ~ .painel-adicionar label[for="et-ne-4"] { display: inline-flex; }
-#et-ne-1:checked ~ .painel-adicionar label[for="et-ne-1"] { display: none; }
-#et-ne-2:checked ~ .painel-adicionar label[for="et-ne-2"] { display: none; }
-#et-ne-3:checked ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
-#et-ne-4:checked ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
-#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-2"] { display: none; }
-#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
-#et-ne-2:not(:checked) ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
-#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
-#et-ne-2:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
-#et-ne-3:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
-
 #et-pag-1:checked ~ .painel-adicionar label[for="et-pag-2"] { display: inline-flex; }
 #et-pag-2:checked ~ .painel-adicionar label[for="et-pag-3"] { display: inline-flex; }
 #et-pag-3:checked ~ .painel-adicionar label[for="et-pag-4"] { display: inline-flex; }
@@ -1264,6 +1477,108 @@ label.adicionar {
 #et-nc-1:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
 #et-nc-2:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
 #et-nc-3:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
+
+/* =========================================================
+   NOTAS DE EMPENHO DENTRO DO FORMULÁRIO
+   Mesma mecânica das etapas, um nível abaixo: cada formulário
+   tem suas próprias caixas de seleção e sua própria lista.
+   ========================================================= */
+.notas-do-empenho {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--borda-forte);
+}
+
+.notas-do-empenho > input[type="checkbox"] { display: none; }
+
+/* subtítulo dentro de um cartão de visualização */
+.sub-secao {
+  padding: 18px 20px 10px;
+  border-top: 1px dashed var(--borda-forte);
+  margin-top: 4px;
+}
+
+.sub-secao .titulo-sub { margin: 0; }
+
+.titulo-sub {
+  margin: 0 0 12px;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--texto-suave);
+  font-weight: 700;
+}
+
+.remover-nota {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vermelho-txt);
+  cursor: pointer;
+}
+
+.remover-nota:hover { text-decoration: underline; }
+
+/* nenhuma nota aparece até ser adicionada */
+.lista-notas > .repeticao { display: none; }
+
+#ne-1-1:checked ~ .lista-notas > #n-1-1,
+#ne-1-2:checked ~ .lista-notas > #n-1-2,
+#ne-1-3:checked ~ .lista-notas > #n-1-3,
+#ne-2-1:checked ~ .lista-notas > #n-2-1,
+#ne-2-2:checked ~ .lista-notas > #n-2-2,
+#ne-2-3:checked ~ .lista-notas > #n-2-3,
+#ne-3-1:checked ~ .lista-notas > #n-3-1,
+#ne-3-2:checked ~ .lista-notas > #n-3-2,
+#ne-3-3:checked ~ .lista-notas > #n-3-3,
+#ne-4-1:checked ~ .lista-notas > #n-4-1,
+#ne-4-2:checked ~ .lista-notas > #n-4-2,
+#ne-4-3:checked ~ .lista-notas > #n-4-3 { display: block; }
+
+.notas-do-empenho label[for="ne-1-2"],
+.notas-do-empenho label[for="ne-1-3"],
+.notas-do-empenho label[for="ne-2-2"],
+.notas-do-empenho label[for="ne-2-3"],
+.notas-do-empenho label[for="ne-3-2"],
+.notas-do-empenho label[for="ne-3-3"],
+.notas-do-empenho label[for="ne-4-2"],
+.notas-do-empenho label[for="ne-4-3"] { display: none; }
+
+#ne-1-1:checked ~ label[for="ne-1-2"] { display: block; }
+#ne-1-2:checked ~ label[for="ne-1-3"] { display: block; }
+#ne-1-1:checked ~ label[for="ne-1-1"] { display: none; }
+#ne-1-2:checked ~ label[for="ne-1-2"] { display: none; }
+#ne-1-3:checked ~ label[for="ne-1-3"] { display: none; }
+#ne-1-1:not(:checked) ~ label[for="ne-1-2"] { display: none; }
+#ne-1-1:not(:checked) ~ label[for="ne-1-3"] { display: none; }
+#ne-1-2:not(:checked) ~ label[for="ne-1-3"] { display: none; }
+
+#ne-2-1:checked ~ label[for="ne-2-2"] { display: block; }
+#ne-2-2:checked ~ label[for="ne-2-3"] { display: block; }
+#ne-2-1:checked ~ label[for="ne-2-1"] { display: none; }
+#ne-2-2:checked ~ label[for="ne-2-2"] { display: none; }
+#ne-2-3:checked ~ label[for="ne-2-3"] { display: none; }
+#ne-2-1:not(:checked) ~ label[for="ne-2-2"] { display: none; }
+#ne-2-1:not(:checked) ~ label[for="ne-2-3"] { display: none; }
+#ne-2-2:not(:checked) ~ label[for="ne-2-3"] { display: none; }
+
+#ne-3-1:checked ~ label[for="ne-3-2"] { display: block; }
+#ne-3-2:checked ~ label[for="ne-3-3"] { display: block; }
+#ne-3-1:checked ~ label[for="ne-3-1"] { display: none; }
+#ne-3-2:checked ~ label[for="ne-3-2"] { display: none; }
+#ne-3-3:checked ~ label[for="ne-3-3"] { display: none; }
+#ne-3-1:not(:checked) ~ label[for="ne-3-2"] { display: none; }
+#ne-3-1:not(:checked) ~ label[for="ne-3-3"] { display: none; }
+#ne-3-2:not(:checked) ~ label[for="ne-3-3"] { display: none; }
+
+#ne-4-1:checked ~ label[for="ne-4-2"] { display: block; }
+#ne-4-2:checked ~ label[for="ne-4-3"] { display: block; }
+#ne-4-1:checked ~ label[for="ne-4-1"] { display: none; }
+#ne-4-2:checked ~ label[for="ne-4-2"] { display: none; }
+#ne-4-3:checked ~ label[for="ne-4-3"] { display: none; }
+#ne-4-1:not(:checked) ~ label[for="ne-4-2"] { display: none; }
+#ne-4-1:not(:checked) ~ label[for="ne-4-3"] { display: none; }
+#ne-4-2:not(:checked) ~ label[for="ne-4-3"] { display: none; }
 
 /* link de remover, no rodapé de cada etapa */
 .remover-etapa {

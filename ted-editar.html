@@ -31,6 +31,7 @@
       <nav class="menu">
         <a href="ted-visualizar.html">Visualizar Processos</a>
         <a href="ted-processos.html">Processos</a>
+        <a href="ted-lembretes.html">Lembretes</a>
       </nav>
 
       <div class="lateral-usuario">
@@ -117,10 +118,6 @@
       <input type="checkbox" id="et-emp-2">
       <input type="checkbox" id="et-emp-3">
       <input type="checkbox" id="et-emp-4">
-      <input type="checkbox" id="et-ne-1" checked>
-      <input type="checkbox" id="et-ne-2">
-      <input type="checkbox" id="et-ne-3">
-      <input type="checkbox" id="et-ne-4">
       <input type="checkbox" id="et-pag-1" checked>
       <input type="checkbox" id="et-pag-2">
       <input type="checkbox" id="et-pag-3">
@@ -223,10 +220,6 @@
         <label class="chip-add" for="et-emp-2">+ Formulário de Empenho / Descentralização</label>
         <label class="chip-add" for="et-emp-3">+ Formulário de Empenho / Descentralização</label>
         <label class="chip-add" for="et-emp-4">+ Formulário de Empenho / Descentralização</label>
-        <label class="chip-add" for="et-ne-1">+ Nota de Empenho</label>
-        <label class="chip-add" for="et-ne-2">+ Nota de Empenho</label>
-        <label class="chip-add" for="et-ne-3">+ Nota de Empenho</label>
-        <label class="chip-add" for="et-ne-4">+ Nota de Empenho</label>
         <label class="chip-add" for="et-pag-1">+ Formulário de Pagamento / Repasse Financeiro</label>
         <label class="chip-add" for="et-pag-2">+ Formulário de Pagamento / Repasse Financeiro</label>
         <label class="chip-add" for="et-pag-3">+ Formulário de Pagamento / Repasse Financeiro</label>
@@ -491,7 +484,7 @@
         <details class="cartao" id="s-emp-1" open>
           <summary class="cartao-topo">
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio">Documento SEI</span>
+            <span class="obrigatorio">Documento SEI + notas</span>
           </summary>
           <div class="cartao-corpo">
             <div class="grade">
@@ -504,6 +497,105 @@
                 <input id="emp-obs-1" type="text" value="Referente à primeira parcela">
               </div>
             </div>
+
+            <div class="notas-do-empenho">
+              <input type="checkbox" id="ne-1-1" checked>
+              <input type="checkbox" id="ne-1-2">
+              <input type="checkbox" id="ne-1-3">
+
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+
+              <div class="lista-notas">
+                <div class="repeticao" id="n-1-1">
+                  <div class="repeticao-topo">
+                    <h4>Nota 1</h4>
+                    <label class="remover-nota" for="ne-1-1">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-1-1">Data de emissão</label>
+                      <input id="ne-data-1-1" type="date" value="2025-08-04">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-1-1">Número</label>
+                      <input id="ne-num-1-1" type="text" value="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-1-1">Valor</label>
+                      <input id="ne-valor-1-1" type="text" value="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-1-1">Status</label>
+                      <select id="ne-status-1-1">
+                        <option>Aguardando emissão</option>
+                        <option selected>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-1-2">
+                  <div class="repeticao-topo">
+                    <h4>Nota 2</h4>
+                    <label class="remover-nota" for="ne-1-2">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-1-2">Data de emissão</label>
+                      <input id="ne-data-1-2" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-1-2">Número</label>
+                      <input id="ne-num-1-2" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-1-2">Valor</label>
+                      <input id="ne-valor-1-2" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-1-2">Status</label>
+                      <select id="ne-status-1-2">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-1-3">
+                  <div class="repeticao-topo">
+                    <h4>Nota 3</h4>
+                    <label class="remover-nota" for="ne-1-3">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-1-3">Data de emissão</label>
+                      <input id="ne-data-1-3" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-1-3">Número</label>
+                      <input id="ne-num-1-3" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-1-3">Valor</label>
+                      <input id="ne-valor-1-3" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-1-3">Status</label>
+                      <select id="ne-status-1-3">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label class="adicionar" for="ne-1-1">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-1-2">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-1-3">+ Adicionar nota de empenho</label>
+            </div>
+
             <label class="remover-etapa" for="et-emp-1">Excluir esta etapa</label>
           </div>
         </details>
@@ -511,7 +603,7 @@
         <details class="cartao" id="s-emp-2" open>
           <summary class="cartao-topo">
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio">Documento SEI</span>
+            <span class="obrigatorio">Documento SEI + notas</span>
           </summary>
           <div class="cartao-corpo">
             <div class="grade">
@@ -524,6 +616,105 @@
                 <input id="emp-obs-2" type="text" placeholder="Ex.: referente à primeira parcela">
               </div>
             </div>
+
+            <div class="notas-do-empenho">
+              <input type="checkbox" id="ne-2-1">
+              <input type="checkbox" id="ne-2-2">
+              <input type="checkbox" id="ne-2-3">
+
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+
+              <div class="lista-notas">
+                <div class="repeticao" id="n-2-1">
+                  <div class="repeticao-topo">
+                    <h4>Nota 1</h4>
+                    <label class="remover-nota" for="ne-2-1">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-2-1">Data de emissão</label>
+                      <input id="ne-data-2-1" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-2-1">Número</label>
+                      <input id="ne-num-2-1" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-2-1">Valor</label>
+                      <input id="ne-valor-2-1" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-2-1">Status</label>
+                      <select id="ne-status-2-1">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-2-2">
+                  <div class="repeticao-topo">
+                    <h4>Nota 2</h4>
+                    <label class="remover-nota" for="ne-2-2">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-2-2">Data de emissão</label>
+                      <input id="ne-data-2-2" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-2-2">Número</label>
+                      <input id="ne-num-2-2" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-2-2">Valor</label>
+                      <input id="ne-valor-2-2" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-2-2">Status</label>
+                      <select id="ne-status-2-2">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-2-3">
+                  <div class="repeticao-topo">
+                    <h4>Nota 3</h4>
+                    <label class="remover-nota" for="ne-2-3">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-2-3">Data de emissão</label>
+                      <input id="ne-data-2-3" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-2-3">Número</label>
+                      <input id="ne-num-2-3" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-2-3">Valor</label>
+                      <input id="ne-valor-2-3" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-2-3">Status</label>
+                      <select id="ne-status-2-3">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label class="adicionar" for="ne-2-1">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-2-2">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-2-3">+ Adicionar nota de empenho</label>
+            </div>
+
             <label class="remover-etapa" for="et-emp-2">Excluir esta etapa</label>
           </div>
         </details>
@@ -531,7 +722,7 @@
         <details class="cartao" id="s-emp-3" open>
           <summary class="cartao-topo">
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio">Documento SEI</span>
+            <span class="obrigatorio">Documento SEI + notas</span>
           </summary>
           <div class="cartao-corpo">
             <div class="grade">
@@ -544,6 +735,105 @@
                 <input id="emp-obs-3" type="text" placeholder="Ex.: referente à primeira parcela">
               </div>
             </div>
+
+            <div class="notas-do-empenho">
+              <input type="checkbox" id="ne-3-1">
+              <input type="checkbox" id="ne-3-2">
+              <input type="checkbox" id="ne-3-3">
+
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+
+              <div class="lista-notas">
+                <div class="repeticao" id="n-3-1">
+                  <div class="repeticao-topo">
+                    <h4>Nota 1</h4>
+                    <label class="remover-nota" for="ne-3-1">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-3-1">Data de emissão</label>
+                      <input id="ne-data-3-1" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-3-1">Número</label>
+                      <input id="ne-num-3-1" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-3-1">Valor</label>
+                      <input id="ne-valor-3-1" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-3-1">Status</label>
+                      <select id="ne-status-3-1">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-3-2">
+                  <div class="repeticao-topo">
+                    <h4>Nota 2</h4>
+                    <label class="remover-nota" for="ne-3-2">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-3-2">Data de emissão</label>
+                      <input id="ne-data-3-2" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-3-2">Número</label>
+                      <input id="ne-num-3-2" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-3-2">Valor</label>
+                      <input id="ne-valor-3-2" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-3-2">Status</label>
+                      <select id="ne-status-3-2">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-3-3">
+                  <div class="repeticao-topo">
+                    <h4>Nota 3</h4>
+                    <label class="remover-nota" for="ne-3-3">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-3-3">Data de emissão</label>
+                      <input id="ne-data-3-3" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-3-3">Número</label>
+                      <input id="ne-num-3-3" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-3-3">Valor</label>
+                      <input id="ne-valor-3-3" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-3-3">Status</label>
+                      <select id="ne-status-3-3">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label class="adicionar" for="ne-3-1">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-3-2">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-3-3">+ Adicionar nota de empenho</label>
+            </div>
+
             <label class="remover-etapa" for="et-emp-3">Excluir esta etapa</label>
           </div>
         </details>
@@ -551,7 +841,7 @@
         <details class="cartao" id="s-emp-4" open>
           <summary class="cartao-topo">
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio">Documento SEI</span>
+            <span class="obrigatorio">Documento SEI + notas</span>
           </summary>
           <div class="cartao-corpo">
             <div class="grade">
@@ -564,147 +854,106 @@
                 <input id="emp-obs-4" type="text" placeholder="Ex.: referente à primeira parcela">
               </div>
             </div>
+
+            <div class="notas-do-empenho">
+              <input type="checkbox" id="ne-4-1">
+              <input type="checkbox" id="ne-4-2">
+              <input type="checkbox" id="ne-4-3">
+
+              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+
+              <div class="lista-notas">
+                <div class="repeticao" id="n-4-1">
+                  <div class="repeticao-topo">
+                    <h4>Nota 1</h4>
+                    <label class="remover-nota" for="ne-4-1">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-4-1">Data de emissão</label>
+                      <input id="ne-data-4-1" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-4-1">Número</label>
+                      <input id="ne-num-4-1" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-4-1">Valor</label>
+                      <input id="ne-valor-4-1" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-4-1">Status</label>
+                      <select id="ne-status-4-1">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-4-2">
+                  <div class="repeticao-topo">
+                    <h4>Nota 2</h4>
+                    <label class="remover-nota" for="ne-4-2">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-4-2">Data de emissão</label>
+                      <input id="ne-data-4-2" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-4-2">Número</label>
+                      <input id="ne-num-4-2" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-4-2">Valor</label>
+                      <input id="ne-valor-4-2" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-4-2">Status</label>
+                      <select id="ne-status-4-2">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="repeticao" id="n-4-3">
+                  <div class="repeticao-topo">
+                    <h4>Nota 3</h4>
+                    <label class="remover-nota" for="ne-4-3">Excluir</label>
+                  </div>
+                  <div class="grade">
+                    <div class="campo col-3">
+                      <label for="ne-data-4-3">Data de emissão</label>
+                      <input id="ne-data-4-3" type="date">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-num-4-3">Número</label>
+                      <input id="ne-num-4-3" type="text" placeholder="2025NE000751">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-valor-4-3">Valor</label>
+                      <input id="ne-valor-4-3" type="text" placeholder="R$ 2.767,01">
+                    </div>
+                    <div class="campo col-3">
+                      <label for="ne-status-4-3">Status</label>
+                      <select id="ne-status-4-3">
+                        <option>Aguardando emissão</option>
+                        <option>Emitida</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <label class="adicionar" for="ne-4-1">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-4-2">+ Adicionar nota de empenho</label>
+              <label class="adicionar" for="ne-4-3">+ Adicionar nota de empenho</label>
+            </div>
+
             <label class="remover-etapa" for="et-emp-4">Excluir esta etapa</label>
-          </div>
-        </details>
-
-        <details class="cartao" id="s-ne-1" open>
-          <summary class="cartao-topo">
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio">SIAFI</span>
-          </summary>
-          <div class="cartao-corpo">
-            <div class="grade">
-              <div class="campo col-3">
-                <label for="ne-data-1">Data de emissão</label>
-                <input id="ne-data-1" type="date" value="2025-08-04">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-numero-1">Número</label>
-                <input id="ne-numero-1" type="text" value="2025NE000751">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-valor-1">Valor</label>
-                <input id="ne-valor-1" type="text" value="R$ 2.767,01">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-status-1">Status</label>
-                <select id="ne-status-1">
-                  <option>Aguardando emissão</option>
-                  <option selected>Emitida</option>
-                </select>
-              </div>
-              <div class="campo col-4">
-                <label for="ne-form-1">Referente ao formulário de empenho</label>
-                <input id="ne-form-1" type="text" value="17276745">
-              </div>
-            </div>
-            <label class="remover-etapa" for="et-ne-1">Excluir esta etapa</label>
-          </div>
-        </details>
-
-        <details class="cartao" id="s-ne-2" open>
-          <summary class="cartao-topo">
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio">SIAFI</span>
-          </summary>
-          <div class="cartao-corpo">
-            <div class="grade">
-              <div class="campo col-3">
-                <label for="ne-data-2">Data de emissão</label>
-                <input id="ne-data-2" type="date">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-numero-2">Número</label>
-                <input id="ne-numero-2" type="text" placeholder="2025NE000751">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-valor-2">Valor</label>
-                <input id="ne-valor-2" type="text" placeholder="R$ 2.767,01">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-status-2">Status</label>
-                <select id="ne-status-2">
-                  <option>Aguardando emissão</option>
-                  <option>Emitida</option>
-                </select>
-              </div>
-              <div class="campo col-4">
-                <label for="ne-form-2">Referente ao formulário de empenho</label>
-                <input id="ne-form-2" type="text" placeholder="17276745">
-              </div>
-            </div>
-            <label class="remover-etapa" for="et-ne-2">Excluir esta etapa</label>
-          </div>
-        </details>
-
-        <details class="cartao" id="s-ne-3" open>
-          <summary class="cartao-topo">
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio">SIAFI</span>
-          </summary>
-          <div class="cartao-corpo">
-            <div class="grade">
-              <div class="campo col-3">
-                <label for="ne-data-3">Data de emissão</label>
-                <input id="ne-data-3" type="date">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-numero-3">Número</label>
-                <input id="ne-numero-3" type="text" placeholder="2025NE000751">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-valor-3">Valor</label>
-                <input id="ne-valor-3" type="text" placeholder="R$ 2.767,01">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-status-3">Status</label>
-                <select id="ne-status-3">
-                  <option>Aguardando emissão</option>
-                  <option>Emitida</option>
-                </select>
-              </div>
-              <div class="campo col-4">
-                <label for="ne-form-3">Referente ao formulário de empenho</label>
-                <input id="ne-form-3" type="text" placeholder="17276745">
-              </div>
-            </div>
-            <label class="remover-etapa" for="et-ne-3">Excluir esta etapa</label>
-          </div>
-        </details>
-
-        <details class="cartao" id="s-ne-4" open>
-          <summary class="cartao-topo">
-            <h2>Nota de Empenho</h2>
-            <span class="obrigatorio">SIAFI</span>
-          </summary>
-          <div class="cartao-corpo">
-            <div class="grade">
-              <div class="campo col-3">
-                <label for="ne-data-4">Data de emissão</label>
-                <input id="ne-data-4" type="date">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-numero-4">Número</label>
-                <input id="ne-numero-4" type="text" placeholder="2025NE000751">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-valor-4">Valor</label>
-                <input id="ne-valor-4" type="text" placeholder="R$ 2.767,01">
-              </div>
-              <div class="campo col-3">
-                <label for="ne-status-4">Status</label>
-                <select id="ne-status-4">
-                  <option>Aguardando emissão</option>
-                  <option>Emitida</option>
-                </select>
-              </div>
-              <div class="campo col-4">
-                <label for="ne-form-4">Referente ao formulário de empenho</label>
-                <input id="ne-form-4" type="text" placeholder="17276745">
-              </div>
-            </div>
-            <label class="remover-etapa" for="et-ne-4">Excluir esta etapa</label>
           </div>
         </details>
 
@@ -1181,7 +1430,8 @@
         <div class="janela-corpo texto">
           <p>Tem certeza que deseja excluir este processo?</p>
           <span class="destaque">71000.019842/2025-31 — UFRRJ, TED 06/2025</span>
-          <p>Use isto apenas quando o processo tiver sido criado por engano.</p>
+          <p>Todas as etapas, as notas de empenho, as anotações e o histórico de
+             modificações serão apagados junto. Não dá para desfazer.</p>
         </div>
 
         <div class="janela-rodape">
@@ -1191,7 +1441,7 @@
       </div>
     </div>
 
-  </main>
+    </main>
 
   <footer class="rodape">
     Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.

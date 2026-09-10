@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modelos de e-mail — Sistema de Processos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- ============ MENU LATERAL ============ -->
+    <aside class="lateral">
+      <div class="lateral-marca">
+        <span class="sigla">SP</span>
+        <span class="nome">
+          <strong>Sistema de Processos</strong>
+          Painel interno
+        </span>
+      </div>
+
+      <div class="lateral-tipo">
+        <span class="rotulo">Tipo de processo</span>
+        <div class="atual">
+          <span class="sigla-tipo">TED</span>
+          <a href="index.html" class="trocar">Trocar</a>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <a href="ted-visualizar.html">Visualizar Processos</a>
+        <a href="ted-processos.html">Processos</a>
+        <a href="ted-lembretes.html">Lembretes</a>
+      </nav>
+
+      <div class="lateral-usuario">
+        <span class="avatar">T</span>
+        Tina
+      </div>
+    </aside>
+
+    <div class="conteudo">
+
+  <main class="pagina">
+
+    <div class="trilha">
+      <a href="ted-lembretes.html">Lembretes</a> &rsaquo; <strong>Modelos de e-mail</strong>
+    </div>
+
+    <div class="cabecalho-pagina">
+      <div>
+        <h1>Modelos de e-mail</h1>
+        <p>Escreva o texto uma vez. O sistema troca as etiquetas pelos dados do processo na hora de enviar.</p>
+      </div>
+      <div class="acoes">
+        <a href="#novo-modelo" class="botao primario">+ Criar modelo</a>
+      </div>
+    </div>
+
+    <!-- ---- editor ---- -->
+    <details class="cartao" open>
+      <summary class="cartao-topo">
+        <h2>Editar modelo</h2>
+        <span class="obrigatorio">Cobrança de assinatura</span>
+      </summary>
+      <div class="cartao-corpo">
+        <div class="grade">
+
+          <div class="campo col-5">
+            <label for="m-nome">Nome do modelo <span class="req">*</span></label>
+            <input id="m-nome" type="text" value="Cobrança de assinatura">
+          </div>
+
+          <div class="campo col-7">
+            <label for="m-assunto">Assunto</label>
+            <input id="m-assunto" type="text" value="Pendência no processo {processo}">
+          </div>
+
+          <div class="campo col-12">
+            <label for="m-corpo">Texto do e-mail</label>
+            <textarea id="m-corpo" style="min-height:170px">Olá,
+
+O processo {processo} ({instituicao} — TED {ted}) está parado na etapa {etapa}.
+
+Falta: {pendencia}.
+
+Atenciosamente,
+Tina</textarea>
+          </div>
+
+          <div class="campo col-12">
+            <label>Etiquetas que o sistema troca sozinho</label>
+            <div class="variaveis">
+              <code>{processo}</code>
+              <code>{instituicao}</code>
+              <code>{ted}</code>
+              <code>{ug}</code>
+              <code>{etapa}</code>
+              <code>{pendencia}</code>
+              <code>{prazo}</code>
+              <code>{valor}</code>
+            </div>
+          </div>
+
+          <div class="campo col-6">
+            <label for="m-anexos">Anexos fixos</label>
+            <input id="m-anexos" type="file" multiple>
+          </div>
+
+          <div class="campo col-6">
+            <label>Assinatura no rodapé</label>
+            <div class="assinaturas">
+              <label class="assinatura">
+                <input type="checkbox" checked>
+                Incluir a assinatura padrão
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- prévia com os dados de um processo real -->
+        <div class="sub-secao" style="margin-top:18px;padding-left:0;padding-right:0">
+          <h4 class="titulo-sub">Como fica com os dados do TED 06/2025</h4>
+        </div>
+
+        <div class="previa-email">
+          <p class="assunto">Assunto: Pendência no processo 71000.019842/2025-31</p>
+          <p>Olá,</p>
+          <p>O processo <span class="variavel">71000.019842/2025-31</span>
+             (<span class="variavel">UFRRJ</span> — TED <span class="variavel">06/2025</span>)
+             está parado na etapa <span class="variavel">Nota de Programação Financeira</span>.</p>
+          <p>Falta: <span class="variavel">a data de emissão</span>.</p>
+          <p>Atenciosamente,<br>Tina</p>
+        </div>
+
+        <div class="acoes-formulario" style="margin-top:18px">
+          <span class="observacao">Protótipo: nada é salvo nem enviado.</span>
+          <a href="modelos-email.html" class="botao secundario">Cancelar</a>
+          <button type="button" class="botao primario">Salvar modelo</button>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- ---- lista ---- -->
+    <section class="cartao">
+      <div class="cartao-topo">
+        <h2>Modelos cadastrados</h2>
+        <span class="obrigatorio">4 modelos</span>
+      </div>
+
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Assunto</th>
+            <th>Anexos</th>
+            <th>Usado em</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td>
+              <div class="principal">Padrão do sistema</div>
+              <div class="secundario">Usado quando nenhum modelo é escolhido</div>
+            </td>
+            <td class="secundario">Pendência no processo {processo}</td>
+            <td class="secundario">—</td>
+            <td>1 lembrete</td>
+            <td style="white-space:nowrap"><a href="#" class="botao discreto pequeno">Editar</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="principal">Cobrança de assinatura</div>
+              <div class="secundario">Para pendências de assinatura</div>
+            </td>
+            <td class="secundario">Pendência no processo {processo}</td>
+            <td class="secundario">—</td>
+            <td>2 lembretes</td>
+            <td style="white-space:nowrap"><a href="#" class="botao discreto pequeno">Editar</a><a href="#excluir-modelo" class="botao discreto pequeno perigo">Excluir</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="principal">Aviso de prazo</div>
+              <div class="secundario">Quando a vigência está perto do fim</div>
+            </td>
+            <td class="secundario">O TED {ted} vence em {prazo}</td>
+            <td>calendario.png</td>
+            <td>1 lembrete</td>
+            <td style="white-space:nowrap"><a href="#" class="botao discreto pequeno">Editar</a><a href="#excluir-modelo" class="botao discreto pequeno perigo">Excluir</a></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="principal">Repasse financeiro</div>
+              <div class="secundario">Para cobrar o Financeiro</div>
+            </td>
+            <td class="secundario">Solicitação de repasse — {processo}</td>
+            <td>modelo-oficio.pdf</td>
+            <td>1 lembrete</td>
+            <td style="white-space:nowrap"><a href="#" class="botao discreto pequeno">Editar</a><a href="#excluir-modelo" class="botao discreto pequeno perigo">Excluir</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+
+    <!-- =============================================================
+         JANELA DE CRIAR MODELO
+         ============================================================= -->
+    <div class="janela" id="novo-modelo">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa">
+        <div class="janela-topo">
+          <h2>Criar modelo de e-mail</h2>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo formulario">
+          <div class="grade">
+
+            <div class="campo col-5">
+              <label for="n-nome">Nome do modelo <span class="req">*</span></label>
+              <input id="n-nome" type="text" placeholder="Ex.: Cobrança de documento no SEI">
+            </div>
+
+            <div class="campo col-7">
+              <label for="n-assunto">Assunto</label>
+              <input id="n-assunto" type="text" placeholder="Ex.: Pendência no processo {processo}">
+            </div>
+
+            <div class="campo col-12">
+              <label for="n-corpo">Texto do e-mail</label>
+              <textarea id="n-corpo" style="min-height:150px" placeholder="Olá,&#10;&#10;O processo {processo} está parado na etapa {etapa}.&#10;&#10;Falta: {pendencia}.&#10;&#10;Atenciosamente,&#10;Tina"></textarea>
+            </div>
+
+            <div class="campo col-12">
+              <label>Etiquetas que o sistema troca sozinho</label>
+              <div class="variaveis">
+                <code>{processo}</code>
+                <code>{instituicao}</code>
+                <code>{ted}</code>
+                <code>{ug}</code>
+                <code>{etapa}</code>
+                <code>{pendencia}</code>
+                <code>{prazo}</code>
+                <code>{valor}</code>
+              </div>
+            </div>
+
+            <div class="campo col-6">
+              <label for="n-anexos">Anexos fixos</label>
+              <input id="n-anexos" type="file" multiple>
+            </div>
+
+            <div class="campo col-6">
+              <label>Assinatura no rodapé</label>
+              <div class="assinaturas">
+                <label class="assinatura">
+                  <input type="checkbox" checked>
+                  Incluir a assinatura padrão
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Cancelar</a>
+          <a href="modelos-email.html" class="botao primario">Criar modelo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================================================
+         JANELA DE CONFIRMAÇÃO
+         ============================================================= -->
+    <div class="janela" id="excluir-modelo">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa estreita">
+        <div class="janela-topo">
+          <h2>Excluir modelo</h2>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo texto">
+          <p>Tem certeza que deseja excluir este modelo?</p>
+          <span class="destaque">Os lembretes que usavam este modelo passam a usar o padrão do sistema.</span>
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Cancelar</a>
+          <a href="modelos-email.html" class="botao perigo">Excluir modelo</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="rodape">
+    Protótipo visual — sem funcionamento real. Feito apenas para validar as telas e os campos.
+  </footer>
+
+    </div>
+  </div>
+
+</body>
+</html>
