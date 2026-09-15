@@ -125,16 +125,16 @@
             <div class="conteudo">21/01/2027</div>
           </div>
           <div class="item">
-            <div class="rotulo">Valor atual</div>
+            <div class="rotulo">Valor Inicial</div>
             <div class="conteudo">R$ 1.500.000,00</div>
           </div>
           <div class="item">
-            <div class="rotulo">Valor definitivo</div>
+            <div class="rotulo">Valor atual</div>
             <div class="conteudo">R$ 1.472.232,99</div>
           </div>
           <div class="item">
-            <div class="rotulo">Motivo da alteração</div>
-            <div class="conteudo" style="font-weight:500">Corte orçamentário na descentralização</div>
+            <div class="rotulo">Aditivos de valor</div>
+            <div class="conteudo"><a href="#aditivos" class="link-discreto">1 aditivo &middot; ver detalhes</a></div>
           </div>
         </div>
 
@@ -333,6 +333,7 @@
             <table class="tabela">
               <thead>
                 <tr>
+                  <th>Código SEI</th>
                   <th>Número</th>
                   <th>Data de emissão</th>
                   <th>Valor</th>
@@ -340,7 +341,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="principal">2025NE000751</td>
+                  <td class="principal">17276901</td>
+                  <td>2025NE000751</td>
                   <td>04/08/2025</td>
                   <td>R$ 2.767,01</td>
                 </tr>
@@ -598,6 +600,44 @@
     </div>
 
     <!-- =============================================================
+         JANELA DOS ADITIVOS DE VALOR
+         Mesmo esquema da janela de histórico: fica escondida até a
+         URL virar "#aditivos". Sem JavaScript.
+         ============================================================= -->
+    <div class="janela" id="aditivos">
+      <a href="#" class="janela-fundo" title="Fechar"></a>
+
+      <div class="janela-caixa estreita">
+        <div class="janela-topo">
+          <h2>Aditivos de valor</h2>
+          <span class="contagem">1 aditivo &middot; 71000.019842/2025-31</span>
+          <a href="#" class="janela-fechar" title="Fechar">&#10005;</a>
+        </div>
+
+        <div class="janela-corpo">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Valor</th>
+                <th>Motivo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="principal">-R$ 27.767,01</td>
+                <td>Corte orçamentário na descentralização</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="janela-rodape">
+          <a href="#" class="botao secundario">Fechar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- =============================================================
          JANELA DO HISTÓRICO
          Fica escondida até a URL virar "#historico" — o que acontece
          quando ela clica no botão lá em cima. Sem JavaScript.
@@ -627,7 +667,7 @@
 
               <tr>
                 <td class="principal">03/09/2025 &middot; 09:14</td>
-                <td>Valor definitivo</td>
+                <td>Valor atual</td>
                 <td class="secundario">R$ 1.500.000,00</td>
                 <td>R$ 1.472.232,99</td>
                 <td>Tina</td>

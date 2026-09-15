@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TED &middot; Editar 71000.019842/2025-31 — Sistema de Processos</title>
   <link rel="stylesheet" href="estilo.css">
+  <script src="mascaras.js" defer></script>
 </head>
 <body>
 
@@ -143,7 +144,7 @@
 
             <div class="campo col-5">
               <label for="processo-numero">Número do processo <span class="req">*</span></label>
-              <input id="processo-numero" type="text" value="71000.019842/2025-31">
+              <input id="processo-numero" type="text" inputmode="numeric" value="71000.019842/2025-31" data-mascara="99999.999999/9999-99">
             </div>
 
             <div class="campo col-4">
@@ -153,17 +154,17 @@
 
             <div class="campo col-3">
               <label for="ted-numero">TED nº</label>
-              <input id="ted-numero" type="text" value="06/2025">
+              <input id="ted-numero" type="text" inputmode="numeric" value="06/2025" data-mascara="99/9999">
             </div>
 
             <div class="campo col-4">
               <label for="vig-inicio">Início da vigência</label>
-              <input id="vig-inicio" type="date" value="2025-07-25">
+              <input id="vig-inicio" type="text" inputmode="numeric" value="25/07/2025" data-mascara="99/99/9999">
             </div>
 
             <div class="campo col-4">
               <label for="vig-fim">Fim da vigência</label>
-              <input id="vig-fim" type="date" value="2027-01-21">
+              <input id="vig-fim" type="text" inputmode="numeric" value="21/01/2027" data-mascara="99/99/9999">
             </div>
 
             <div class="campo col-12">
@@ -178,7 +179,7 @@
 
             <div class="campo col-4">
               <label for="unidade-ug">UG / Gestão favorecida</label>
-              <input id="unidade-ug" type="text" value="153166/15240">
+              <input id="unidade-ug" type="text" inputmode="numeric" value="153166/15240" data-mascara="999999/99999">
             </div>
 
             <div class="campo col-4">
@@ -187,20 +188,79 @@
             </div>
 
             <div class="campo col-4">
-              <label for="valor-inicial">Valor atual</label>
-              <input id="valor-inicial" type="text" value="R$ 1.500.000,00">
+              <label for="valor-inicial">Valor Inicial</label>
+              <input id="valor-inicial" type="text" inputmode="numeric" value="R$ 1.500.000,00" data-dinheiro>
             </div>
 
             <div class="campo col-4">
-              <label for="valor-final">Valor definitivo</label>
-              <input id="valor-final" type="text" value="R$ 1.472.232,99">
+              <label for="valor-final">Valor atual</label>
+              <input id="valor-final" type="text" data-dinheiro readonly title="Calculado automaticamente: Valor Inicial + aditivos de valor">
             </div>
 
-            <div class="campo col-4">
-              <label for="valor-motivo">Motivo da alteração do valor</label>
-              <input id="valor-motivo" type="text" value="Corte orçamentário na descentralização">
+          </div>
+
+          <div class="notas-do-empenho compacta">
+            <input type="checkbox" id="adt-1" checked>
+            <input type="checkbox" id="adt-2">
+            <input type="checkbox" id="adt-3">
+            <input type="checkbox" id="adt-4">
+
+            <h4 class="titulo-sub">Aditivos de valor</h4>
+
+            <div class="lista-notas">
+              <div class="aditivo-linha" id="radt-1">
+                <div class="campo aditivo-valor">
+                  <label for="adt-valor-1">Valor (- p/ redução)</label>
+                  <input id="adt-valor-1" type="text" inputmode="numeric" value="-R$ 27.767,01" data-dinheiro data-aditivo-valor>
+                </div>
+                <div class="campo aditivo-motivo">
+                  <label for="adt-motivo-1">Motivo</label>
+                  <input id="adt-motivo-1" type="text" value="Corte orçamentário na descentralização">
+                </div>
+                <label class="aditivo-remover" for="adt-1" title="Excluir aditivo">&#10005;</label>
+              </div>
+
+              <div class="aditivo-linha" id="radt-2">
+                <div class="campo aditivo-valor">
+                  <label for="adt-valor-2">Valor (- p/ redução)</label>
+                  <input id="adt-valor-2" type="text" inputmode="numeric" placeholder="Ex.: R$ 50.000,00" data-dinheiro data-aditivo-valor>
+                </div>
+                <div class="campo aditivo-motivo">
+                  <label for="adt-motivo-2">Motivo</label>
+                  <input id="adt-motivo-2" type="text" placeholder="Ex.: corte orçamentário na descentralização">
+                </div>
+                <label class="aditivo-remover" for="adt-2" title="Excluir aditivo">&#10005;</label>
+              </div>
+
+              <div class="aditivo-linha" id="radt-3">
+                <div class="campo aditivo-valor">
+                  <label for="adt-valor-3">Valor (- p/ redução)</label>
+                  <input id="adt-valor-3" type="text" inputmode="numeric" placeholder="Ex.: R$ 50.000,00" data-dinheiro data-aditivo-valor>
+                </div>
+                <div class="campo aditivo-motivo">
+                  <label for="adt-motivo-3">Motivo</label>
+                  <input id="adt-motivo-3" type="text" placeholder="Ex.: corte orçamentário na descentralização">
+                </div>
+                <label class="aditivo-remover" for="adt-3" title="Excluir aditivo">&#10005;</label>
+              </div>
+
+              <div class="aditivo-linha" id="radt-4">
+                <div class="campo aditivo-valor">
+                  <label for="adt-valor-4">Valor (- p/ redução)</label>
+                  <input id="adt-valor-4" type="text" inputmode="numeric" placeholder="Ex.: R$ 50.000,00" data-dinheiro data-aditivo-valor>
+                </div>
+                <div class="campo aditivo-motivo">
+                  <label for="adt-motivo-4">Motivo</label>
+                  <input id="adt-motivo-4" type="text" placeholder="Ex.: corte orçamentário na descentralização">
+                </div>
+                <label class="aditivo-remover" for="adt-4" title="Excluir aditivo">&#10005;</label>
+              </div>
             </div>
 
+            <label class="adicionar-aditivo" for="adt-1">+ Adicionar aditivo</label>
+            <label class="adicionar-aditivo" for="adt-2">+ Adicionar aditivo</label>
+            <label class="adicionar-aditivo" for="adt-3">+ Adicionar aditivo</label>
+            <label class="adicionar-aditivo" for="adt-4">+ Adicionar aditivo</label>
           </div>
         </div>
       </details>
@@ -278,7 +338,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="adim-sei-2">Código SEI</label>
-                <input id="adim-sei-2" type="text" placeholder="17008386">
+                <input id="adim-sei-2" type="text" placeholder="Ex.: 17008386">
               </div>
               <div class="campo col-4">
                 <label for="adim-status-2">Status</label>
@@ -310,7 +370,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="adim-sei-3">Código SEI</label>
-                <input id="adim-sei-3" type="text" placeholder="17008386">
+                <input id="adim-sei-3" type="text" placeholder="Ex.: 17008386">
               </div>
               <div class="campo col-4">
                 <label for="adim-status-3">Status</label>
@@ -342,7 +402,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="adim-sei-4">Código SEI</label>
-                <input id="adim-sei-4" type="text" placeholder="17008386">
+                <input id="adim-sei-4" type="text" placeholder="Ex.: 17008386">
               </div>
               <div class="campo col-4">
                 <label for="adim-status-4">Status</label>
@@ -405,7 +465,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="cert-sei-2">Código SEI</label>
-                <input id="cert-sei-2" type="text" placeholder="17008388">
+                <input id="cert-sei-2" type="text" placeholder="Ex.: 17008388">
               </div>
               <div class="campo col-4">
                 <label for="cert-status-2">Status</label>
@@ -436,7 +496,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="cert-sei-3">Código SEI</label>
-                <input id="cert-sei-3" type="text" placeholder="17008388">
+                <input id="cert-sei-3" type="text" placeholder="Ex.: 17008388">
               </div>
               <div class="campo col-4">
                 <label for="cert-status-3">Status</label>
@@ -467,7 +527,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="cert-sei-4">Código SEI</label>
-                <input id="cert-sei-4" type="text" placeholder="17008388">
+                <input id="cert-sei-4" type="text" placeholder="Ex.: 17008388">
               </div>
               <div class="campo col-4">
                 <label for="cert-status-4">Status</label>
@@ -513,7 +573,7 @@
               </div>
               <div class="campo col-4">
                 <label for="emp-email-data-1">E-mail — data de encaminhamento</label>
-                <input id="emp-email-data-1" type="date">
+                <input id="emp-email-data-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="emp-email-motivo-1">E-mail — motivo do envio</label>
@@ -537,15 +597,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-1-1">Código SEI</label>
-                      <input id="nc-sei-1-1" type="text" placeholder="19118182">
+                      <input id="nc-sei-1-1" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-1-1">Número</label>
-                      <input id="nc-num-1-1" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-1-1" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-1-1">Data de emissão</label>
-                      <input id="nc-data-1-1" type="date">
+                      <input id="nc-data-1-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-1-1">Status</label>
@@ -565,15 +625,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-1-2">Código SEI</label>
-                      <input id="nc-sei-1-2" type="text" placeholder="19118182">
+                      <input id="nc-sei-1-2" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-1-2">Número</label>
-                      <input id="nc-num-1-2" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-1-2" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-1-2">Data de emissão</label>
-                      <input id="nc-data-1-2" type="date">
+                      <input id="nc-data-1-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-1-2">Status</label>
@@ -593,15 +653,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-1-3">Código SEI</label>
-                      <input id="nc-sei-1-3" type="text" placeholder="19118182">
+                      <input id="nc-sei-1-3" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-1-3">Número</label>
-                      <input id="nc-num-1-3" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-1-3" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-1-3">Data de emissão</label>
-                      <input id="nc-data-1-3" type="date">
+                      <input id="nc-data-1-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-1-3">Status</label>
@@ -632,7 +692,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="emp-sei-2">Código SEI</label>
-                <input id="emp-sei-2" type="text" placeholder="17276745">
+                <input id="emp-sei-2" type="text" placeholder="Ex.: 17276745">
               </div>
               <div class="campo col-8">
                 <label for="emp-obs-2">Observação</label>
@@ -647,7 +707,7 @@
               </div>
               <div class="campo col-4">
                 <label for="emp-email-data-2">E-mail — data de encaminhamento</label>
-                <input id="emp-email-data-2" type="date">
+                <input id="emp-email-data-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="emp-email-motivo-2">E-mail — motivo do envio</label>
@@ -671,15 +731,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-2-1">Código SEI</label>
-                      <input id="nc-sei-2-1" type="text" placeholder="19118182">
+                      <input id="nc-sei-2-1" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-2-1">Número</label>
-                      <input id="nc-num-2-1" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-2-1" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-2-1">Data de emissão</label>
-                      <input id="nc-data-2-1" type="date">
+                      <input id="nc-data-2-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-2-1">Status</label>
@@ -699,15 +759,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-2-2">Código SEI</label>
-                      <input id="nc-sei-2-2" type="text" placeholder="19118182">
+                      <input id="nc-sei-2-2" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-2-2">Número</label>
-                      <input id="nc-num-2-2" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-2-2" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-2-2">Data de emissão</label>
-                      <input id="nc-data-2-2" type="date">
+                      <input id="nc-data-2-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-2-2">Status</label>
@@ -727,15 +787,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-2-3">Código SEI</label>
-                      <input id="nc-sei-2-3" type="text" placeholder="19118182">
+                      <input id="nc-sei-2-3" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-2-3">Número</label>
-                      <input id="nc-num-2-3" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-2-3" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-2-3">Data de emissão</label>
-                      <input id="nc-data-2-3" type="date">
+                      <input id="nc-data-2-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-2-3">Status</label>
@@ -766,7 +826,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="emp-sei-3">Código SEI</label>
-                <input id="emp-sei-3" type="text" placeholder="17276745">
+                <input id="emp-sei-3" type="text" placeholder="Ex.: 17276745">
               </div>
               <div class="campo col-8">
                 <label for="emp-obs-3">Observação</label>
@@ -781,7 +841,7 @@
               </div>
               <div class="campo col-4">
                 <label for="emp-email-data-3">E-mail — data de encaminhamento</label>
-                <input id="emp-email-data-3" type="date">
+                <input id="emp-email-data-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="emp-email-motivo-3">E-mail — motivo do envio</label>
@@ -805,15 +865,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-3-1">Código SEI</label>
-                      <input id="nc-sei-3-1" type="text" placeholder="19118182">
+                      <input id="nc-sei-3-1" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-3-1">Número</label>
-                      <input id="nc-num-3-1" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-3-1" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-3-1">Data de emissão</label>
-                      <input id="nc-data-3-1" type="date">
+                      <input id="nc-data-3-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-3-1">Status</label>
@@ -833,15 +893,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-3-2">Código SEI</label>
-                      <input id="nc-sei-3-2" type="text" placeholder="19118182">
+                      <input id="nc-sei-3-2" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-3-2">Número</label>
-                      <input id="nc-num-3-2" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-3-2" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-3-2">Data de emissão</label>
-                      <input id="nc-data-3-2" type="date">
+                      <input id="nc-data-3-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-3-2">Status</label>
@@ -861,15 +921,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-3-3">Código SEI</label>
-                      <input id="nc-sei-3-3" type="text" placeholder="19118182">
+                      <input id="nc-sei-3-3" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-3-3">Número</label>
-                      <input id="nc-num-3-3" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-3-3" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-3-3">Data de emissão</label>
-                      <input id="nc-data-3-3" type="date">
+                      <input id="nc-data-3-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-3-3">Status</label>
@@ -900,7 +960,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="emp-sei-4">Código SEI</label>
-                <input id="emp-sei-4" type="text" placeholder="17276745">
+                <input id="emp-sei-4" type="text" placeholder="Ex.: 17276745">
               </div>
               <div class="campo col-8">
                 <label for="emp-obs-4">Observação</label>
@@ -915,7 +975,7 @@
               </div>
               <div class="campo col-4">
                 <label for="emp-email-data-4">E-mail — data de encaminhamento</label>
-                <input id="emp-email-data-4" type="date">
+                <input id="emp-email-data-4" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="emp-email-motivo-4">E-mail — motivo do envio</label>
@@ -939,15 +999,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-4-1">Código SEI</label>
-                      <input id="nc-sei-4-1" type="text" placeholder="19118182">
+                      <input id="nc-sei-4-1" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-4-1">Número</label>
-                      <input id="nc-num-4-1" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-4-1" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-4-1">Data de emissão</label>
-                      <input id="nc-data-4-1" type="date">
+                      <input id="nc-data-4-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-4-1">Status</label>
@@ -967,15 +1027,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-4-2">Código SEI</label>
-                      <input id="nc-sei-4-2" type="text" placeholder="19118182">
+                      <input id="nc-sei-4-2" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-4-2">Número</label>
-                      <input id="nc-num-4-2" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-4-2" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-4-2">Data de emissão</label>
-                      <input id="nc-data-4-2" type="date">
+                      <input id="nc-data-4-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-4-2">Status</label>
@@ -995,15 +1055,15 @@
                   <div class="grade">
                     <div class="campo col-3">
                       <label for="nc-sei-4-3">Código SEI</label>
-                      <input id="nc-sei-4-3" type="text" placeholder="19118182">
+                      <input id="nc-sei-4-3" type="text" placeholder="Ex.: 19118182">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-num-4-3">Número</label>
-                      <input id="nc-num-4-3" type="text" placeholder="2026NC000069">
+                      <input id="nc-num-4-3" type="text" placeholder="Ex.: 2026NC000069">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-data-4-3">Data de emissão</label>
-                      <input id="nc-data-4-3" type="date">
+                      <input id="nc-data-4-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
                     </div>
                     <div class="campo col-3">
                       <label for="nc-status-4-3">Status</label>
@@ -1033,8 +1093,12 @@
           <div class="cartao-corpo">
             <div class="grade">
               <div class="campo col-3">
+                <label for="ne-sei-1">Código SEI</label>
+                <input id="ne-sei-1" type="text" placeholder="Ex.: 17276745">
+              </div>
+              <div class="campo col-3">
                 <label for="ne-data-1">Data de emissão</label>
-                <input id="ne-data-1" type="date" value="2025-08-04">
+                <input id="ne-data-1" type="text" inputmode="numeric" value="04/08/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="ne-num-1">Número</label>
@@ -1042,7 +1106,7 @@
               </div>
               <div class="campo col-3">
                 <label for="ne-valor-1">Valor</label>
-                <input id="ne-valor-1" type="text" value="R$ 2.767,01">
+                <input id="ne-valor-1" type="text" inputmode="numeric" data-dinheiro value="R$ 2.767,01">
               </div>
               <div class="campo col-3">
                 <label for="ne-status-1">Status</label>
@@ -1064,16 +1128,20 @@
           <div class="cartao-corpo">
             <div class="grade">
               <div class="campo col-3">
+                <label for="ne-sei-2">Código SEI</label>
+                <input id="ne-sei-2" type="text" placeholder="Ex.: 17276745">
+              </div>
+              <div class="campo col-3">
                 <label for="ne-data-2">Data de emissão</label>
-                <input id="ne-data-2" type="date">
+                <input id="ne-data-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="ne-num-2">Número</label>
-                <input id="ne-num-2" type="text" placeholder="2025NE000751">
+                <input id="ne-num-2" type="text" placeholder="Ex.: 2025NE000751">
               </div>
               <div class="campo col-3">
                 <label for="ne-valor-2">Valor</label>
-                <input id="ne-valor-2" type="text" placeholder="R$ 2.767,01">
+                <input id="ne-valor-2" type="text" inputmode="numeric" data-dinheiro placeholder="Ex.: R$ 2.767,01">
               </div>
               <div class="campo col-3">
                 <label for="ne-status-2">Status</label>
@@ -1095,16 +1163,20 @@
           <div class="cartao-corpo">
             <div class="grade">
               <div class="campo col-3">
+                <label for="ne-sei-3">Código SEI</label>
+                <input id="ne-sei-3" type="text" placeholder="Ex.: 17276745">
+              </div>
+              <div class="campo col-3">
                 <label for="ne-data-3">Data de emissão</label>
-                <input id="ne-data-3" type="date">
+                <input id="ne-data-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="ne-num-3">Número</label>
-                <input id="ne-num-3" type="text" placeholder="2025NE000751">
+                <input id="ne-num-3" type="text" placeholder="Ex.: 2025NE000751">
               </div>
               <div class="campo col-3">
                 <label for="ne-valor-3">Valor</label>
-                <input id="ne-valor-3" type="text" placeholder="R$ 2.767,01">
+                <input id="ne-valor-3" type="text" inputmode="numeric" data-dinheiro placeholder="Ex.: R$ 2.767,01">
               </div>
               <div class="campo col-3">
                 <label for="ne-status-3">Status</label>
@@ -1126,16 +1198,20 @@
           <div class="cartao-corpo">
             <div class="grade">
               <div class="campo col-3">
+                <label for="ne-sei-4">Código SEI</label>
+                <input id="ne-sei-4" type="text" placeholder="Ex.: 17276745">
+              </div>
+              <div class="campo col-3">
                 <label for="ne-data-4">Data de emissão</label>
-                <input id="ne-data-4" type="date">
+                <input id="ne-data-4" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="ne-num-4">Número</label>
-                <input id="ne-num-4" type="text" placeholder="2025NE000751">
+                <input id="ne-num-4" type="text" placeholder="Ex.: 2025NE000751">
               </div>
               <div class="campo col-3">
                 <label for="ne-valor-4">Valor</label>
-                <input id="ne-valor-4" type="text" placeholder="R$ 2.767,01">
+                <input id="ne-valor-4" type="text" inputmode="numeric" data-dinheiro placeholder="Ex.: R$ 2.767,01">
               </div>
               <div class="campo col-3">
                 <label for="ne-status-4">Status</label>
@@ -1179,7 +1255,7 @@
               </div>
               <div class="campo col-4">
                 <label for="email-data-1">E-mail — data de encaminhamento</label>
-                <input id="email-data-1" type="date" value="2025-08-08">
+                <input id="email-data-1" type="text" inputmode="numeric" value="08/08/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="email-motivo-1">E-mail — motivo do envio</label>
@@ -1199,7 +1275,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="pag-sei-2">Código SEI</label>
-                <input id="pag-sei-2" type="text" placeholder="17310143">
+                <input id="pag-sei-2" type="text" placeholder="Ex.: 17310143">
               </div>
               <div class="campo col-8">
                 <label>Assinaturas</label>
@@ -1220,7 +1296,7 @@
               </div>
               <div class="campo col-4">
                 <label for="email-data-2">E-mail — data de encaminhamento</label>
-                <input id="email-data-2" type="date">
+                <input id="email-data-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="email-motivo-2">E-mail — motivo do envio</label>
@@ -1240,7 +1316,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="pag-sei-3">Código SEI</label>
-                <input id="pag-sei-3" type="text" placeholder="17310143">
+                <input id="pag-sei-3" type="text" placeholder="Ex.: 17310143">
               </div>
               <div class="campo col-8">
                 <label>Assinaturas</label>
@@ -1261,7 +1337,7 @@
               </div>
               <div class="campo col-4">
                 <label for="email-data-3">E-mail — data de encaminhamento</label>
-                <input id="email-data-3" type="date">
+                <input id="email-data-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="email-motivo-3">E-mail — motivo do envio</label>
@@ -1281,7 +1357,7 @@
             <div class="grade">
               <div class="campo col-4">
                 <label for="pag-sei-4">Código SEI</label>
-                <input id="pag-sei-4" type="text" placeholder="17310143">
+                <input id="pag-sei-4" type="text" placeholder="Ex.: 17310143">
               </div>
               <div class="campo col-8">
                 <label>Assinaturas</label>
@@ -1302,7 +1378,7 @@
               </div>
               <div class="campo col-4">
                 <label for="email-data-4">E-mail — data de encaminhamento</label>
-                <input id="email-data-4" type="date">
+                <input id="email-data-4" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-8">
                 <label for="email-motivo-4">E-mail — motivo do envio</label>
@@ -1330,7 +1406,7 @@
               </div>
               <div class="campo col-3">
                 <label for="pf-emissao-1">Data de emissão</label>
-                <input id="pf-emissao-1" type="date">
+                <input id="pf-emissao-1" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="pf-status-1">Status</label>
@@ -1353,15 +1429,15 @@
             <div class="grade">
               <div class="campo col-3">
                 <label for="pf-sei-2">Código SEI</label>
-                <input id="pf-sei-2" type="text" placeholder="18781004">
+                <input id="pf-sei-2" type="text" placeholder="Ex.: 18781004">
               </div>
               <div class="campo col-3">
                 <label for="pf-numero-2">Número da parcela</label>
-                <input id="pf-numero-2" type="text" placeholder="2025PF000014">
+                <input id="pf-numero-2" type="text" placeholder="Ex.: 2025PF000014">
               </div>
               <div class="campo col-3">
                 <label for="pf-emissao-2">Data de emissão</label>
-                <input id="pf-emissao-2" type="date">
+                <input id="pf-emissao-2" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="pf-status-2">Status</label>
@@ -1384,15 +1460,15 @@
             <div class="grade">
               <div class="campo col-3">
                 <label for="pf-sei-3">Código SEI</label>
-                <input id="pf-sei-3" type="text" placeholder="18781004">
+                <input id="pf-sei-3" type="text" placeholder="Ex.: 18781004">
               </div>
               <div class="campo col-3">
                 <label for="pf-numero-3">Número da parcela</label>
-                <input id="pf-numero-3" type="text" placeholder="2025PF000014">
+                <input id="pf-numero-3" type="text" placeholder="Ex.: 2025PF000014">
               </div>
               <div class="campo col-3">
                 <label for="pf-emissao-3">Data de emissão</label>
-                <input id="pf-emissao-3" type="date">
+                <input id="pf-emissao-3" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="pf-status-3">Status</label>
@@ -1415,15 +1491,15 @@
             <div class="grade">
               <div class="campo col-3">
                 <label for="pf-sei-4">Código SEI</label>
-                <input id="pf-sei-4" type="text" placeholder="18781004">
+                <input id="pf-sei-4" type="text" placeholder="Ex.: 18781004">
               </div>
               <div class="campo col-3">
                 <label for="pf-numero-4">Número da parcela</label>
-                <input id="pf-numero-4" type="text" placeholder="2025PF000014">
+                <input id="pf-numero-4" type="text" placeholder="Ex.: 2025PF000014">
               </div>
               <div class="campo col-3">
                 <label for="pf-emissao-4">Data de emissão</label>
-                <input id="pf-emissao-4" type="date">
+                <input id="pf-emissao-4" type="text" inputmode="numeric" placeholder="Ex.: 25/07/2025" data-mascara="99/99/9999">
               </div>
               <div class="campo col-3">
                 <label for="pf-status-4">Status</label>
