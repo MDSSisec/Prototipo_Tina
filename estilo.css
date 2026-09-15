@@ -1357,6 +1357,10 @@ label.adicionar {
 #et-emp-2:checked ~ .etapas > #s-emp-2,
 #et-emp-3:checked ~ .etapas > #s-emp-3,
 #et-emp-4:checked ~ .etapas > #s-emp-4,
+#et-ne-1:checked ~ .etapas > #s-ne-1,
+#et-ne-2:checked ~ .etapas > #s-ne-2,
+#et-ne-3:checked ~ .etapas > #s-ne-3,
+#et-ne-4:checked ~ .etapas > #s-ne-4,
 #et-pag-1:checked ~ .etapas > #s-pag-1,
 #et-pag-2:checked ~ .etapas > #s-pag-2,
 #et-pag-3:checked ~ .etapas > #s-pag-3,
@@ -1364,11 +1368,7 @@ label.adicionar {
 #et-pf-1:checked ~ .etapas > #s-pf-1,
 #et-pf-2:checked ~ .etapas > #s-pf-2,
 #et-pf-3:checked ~ .etapas > #s-pf-3,
-#et-pf-4:checked ~ .etapas > #s-pf-4,
-#et-nc-1:checked ~ .etapas > #s-nc-1,
-#et-nc-2:checked ~ .etapas > #s-nc-2,
-#et-nc-3:checked ~ .etapas > #s-nc-3,
-#et-nc-4:checked ~ .etapas > #s-nc-4 { display: block; }
+#et-pf-4:checked ~ .etapas > #s-pf-4 { display: block; }
 
 /* Só aparece o botão da PRIMEIRA vaga livre de cada tipo.
    Três regras por vaga, nesta ordem (a última vence o empate):
@@ -1384,15 +1384,15 @@ label.adicionar {
 .painel-adicionar label[for="et-emp-2"],
 .painel-adicionar label[for="et-emp-3"],
 .painel-adicionar label[for="et-emp-4"],
+.painel-adicionar label[for="et-ne-2"],
+.painel-adicionar label[for="et-ne-3"],
+.painel-adicionar label[for="et-ne-4"],
 .painel-adicionar label[for="et-pag-2"],
 .painel-adicionar label[for="et-pag-3"],
 .painel-adicionar label[for="et-pag-4"],
 .painel-adicionar label[for="et-pf-2"],
 .painel-adicionar label[for="et-pf-3"],
-.painel-adicionar label[for="et-pf-4"],
-.painel-adicionar label[for="et-nc-2"],
-.painel-adicionar label[for="et-nc-3"],
-.painel-adicionar label[for="et-nc-4"] { display: none; }
+.painel-adicionar label[for="et-pf-4"] { display: none; }
 
 #et-adim-1:checked ~ .painel-adicionar label[for="et-adim-2"] { display: inline-flex; }
 #et-adim-2:checked ~ .painel-adicionar label[for="et-adim-3"] { display: inline-flex; }
@@ -1436,6 +1436,20 @@ label.adicionar {
 #et-emp-2:not(:checked) ~ .painel-adicionar label[for="et-emp-4"] { display: none; }
 #et-emp-3:not(:checked) ~ .painel-adicionar label[for="et-emp-4"] { display: none; }
 
+#et-ne-1:checked ~ .painel-adicionar label[for="et-ne-2"] { display: inline-flex; }
+#et-ne-2:checked ~ .painel-adicionar label[for="et-ne-3"] { display: inline-flex; }
+#et-ne-3:checked ~ .painel-adicionar label[for="et-ne-4"] { display: inline-flex; }
+#et-ne-1:checked ~ .painel-adicionar label[for="et-ne-1"] { display: none; }
+#et-ne-2:checked ~ .painel-adicionar label[for="et-ne-2"] { display: none; }
+#et-ne-3:checked ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
+#et-ne-4:checked ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
+#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-2"] { display: none; }
+#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
+#et-ne-2:not(:checked) ~ .painel-adicionar label[for="et-ne-3"] { display: none; }
+#et-ne-1:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
+#et-ne-2:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
+#et-ne-3:not(:checked) ~ .painel-adicionar label[for="et-ne-4"] { display: none; }
+
 #et-pag-1:checked ~ .painel-adicionar label[for="et-pag-2"] { display: inline-flex; }
 #et-pag-2:checked ~ .painel-adicionar label[for="et-pag-3"] { display: inline-flex; }
 #et-pag-3:checked ~ .painel-adicionar label[for="et-pag-4"] { display: inline-flex; }
@@ -1464,33 +1478,6 @@ label.adicionar {
 #et-pf-2:not(:checked) ~ .painel-adicionar label[for="et-pf-4"] { display: none; }
 #et-pf-3:not(:checked) ~ .painel-adicionar label[for="et-pf-4"] { display: none; }
 
-#et-nc-1:checked ~ .painel-adicionar label[for="et-nc-2"] { display: inline-flex; }
-#et-nc-2:checked ~ .painel-adicionar label[for="et-nc-3"] { display: inline-flex; }
-#et-nc-3:checked ~ .painel-adicionar label[for="et-nc-4"] { display: inline-flex; }
-#et-nc-1:checked ~ .painel-adicionar label[for="et-nc-1"] { display: none; }
-#et-nc-2:checked ~ .painel-adicionar label[for="et-nc-2"] { display: none; }
-#et-nc-3:checked ~ .painel-adicionar label[for="et-nc-3"] { display: none; }
-#et-nc-4:checked ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
-#et-nc-1:not(:checked) ~ .painel-adicionar label[for="et-nc-2"] { display: none; }
-#et-nc-1:not(:checked) ~ .painel-adicionar label[for="et-nc-3"] { display: none; }
-#et-nc-2:not(:checked) ~ .painel-adicionar label[for="et-nc-3"] { display: none; }
-#et-nc-1:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
-#et-nc-2:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
-#et-nc-3:not(:checked) ~ .painel-adicionar label[for="et-nc-4"] { display: none; }
-
-/* =========================================================
-   NOTAS DE EMPENHO DENTRO DO FORMULÁRIO
-   Mesma mecânica das etapas, um nível abaixo: cada formulário
-   tem suas próprias caixas de seleção e sua própria lista.
-   ========================================================= */
-.notas-do-empenho {
-  margin-top: 20px;
-  padding-top: 18px;
-  border-top: 1px dashed var(--borda-forte);
-}
-
-.notas-do-empenho > input[type="checkbox"] { display: none; }
-
 /* subtítulo dentro de um cartão de visualização */
 .sub-secao {
   padding: 18px 20px 10px;
@@ -1509,6 +1496,19 @@ label.adicionar {
   font-weight: 700;
 }
 
+/* =========================================================
+   NOTAS DE MOVIMENTAÇÃO DE CRÉDITO DENTRO DO FORMULÁRIO
+   Mesma mecânica das etapas, um nível abaixo: cada formulário
+   de empenho tem suas próprias caixas de seleção e sua própria lista.
+   ========================================================= */
+.notas-do-empenho {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--borda-forte);
+}
+
+.notas-do-empenho > input[type="checkbox"] { display: none; }
+
 .remover-nota {
   margin-left: auto;
   font-size: 12px;
@@ -1522,63 +1522,63 @@ label.adicionar {
 /* nenhuma nota aparece até ser adicionada */
 .lista-notas > .repeticao { display: none; }
 
-#ne-1-1:checked ~ .lista-notas > #n-1-1,
-#ne-1-2:checked ~ .lista-notas > #n-1-2,
-#ne-1-3:checked ~ .lista-notas > #n-1-3,
-#ne-2-1:checked ~ .lista-notas > #n-2-1,
-#ne-2-2:checked ~ .lista-notas > #n-2-2,
-#ne-2-3:checked ~ .lista-notas > #n-2-3,
-#ne-3-1:checked ~ .lista-notas > #n-3-1,
-#ne-3-2:checked ~ .lista-notas > #n-3-2,
-#ne-3-3:checked ~ .lista-notas > #n-3-3,
-#ne-4-1:checked ~ .lista-notas > #n-4-1,
-#ne-4-2:checked ~ .lista-notas > #n-4-2,
-#ne-4-3:checked ~ .lista-notas > #n-4-3 { display: block; }
+#nc-1-1:checked ~ .lista-notas > #n-1-1,
+#nc-1-2:checked ~ .lista-notas > #n-1-2,
+#nc-1-3:checked ~ .lista-notas > #n-1-3,
+#nc-2-1:checked ~ .lista-notas > #n-2-1,
+#nc-2-2:checked ~ .lista-notas > #n-2-2,
+#nc-2-3:checked ~ .lista-notas > #n-2-3,
+#nc-3-1:checked ~ .lista-notas > #n-3-1,
+#nc-3-2:checked ~ .lista-notas > #n-3-2,
+#nc-3-3:checked ~ .lista-notas > #n-3-3,
+#nc-4-1:checked ~ .lista-notas > #n-4-1,
+#nc-4-2:checked ~ .lista-notas > #n-4-2,
+#nc-4-3:checked ~ .lista-notas > #n-4-3 { display: block; }
 
-.notas-do-empenho label[for="ne-1-2"],
-.notas-do-empenho label[for="ne-1-3"],
-.notas-do-empenho label[for="ne-2-2"],
-.notas-do-empenho label[for="ne-2-3"],
-.notas-do-empenho label[for="ne-3-2"],
-.notas-do-empenho label[for="ne-3-3"],
-.notas-do-empenho label[for="ne-4-2"],
-.notas-do-empenho label[for="ne-4-3"] { display: none; }
+.notas-do-empenho label[for="nc-1-2"],
+.notas-do-empenho label[for="nc-1-3"],
+.notas-do-empenho label[for="nc-2-2"],
+.notas-do-empenho label[for="nc-2-3"],
+.notas-do-empenho label[for="nc-3-2"],
+.notas-do-empenho label[for="nc-3-3"],
+.notas-do-empenho label[for="nc-4-2"],
+.notas-do-empenho label[for="nc-4-3"] { display: none; }
 
-#ne-1-1:checked ~ label[for="ne-1-2"] { display: block; }
-#ne-1-2:checked ~ label[for="ne-1-3"] { display: block; }
-#ne-1-1:checked ~ label[for="ne-1-1"] { display: none; }
-#ne-1-2:checked ~ label[for="ne-1-2"] { display: none; }
-#ne-1-3:checked ~ label[for="ne-1-3"] { display: none; }
-#ne-1-1:not(:checked) ~ label[for="ne-1-2"] { display: none; }
-#ne-1-1:not(:checked) ~ label[for="ne-1-3"] { display: none; }
-#ne-1-2:not(:checked) ~ label[for="ne-1-3"] { display: none; }
+#nc-1-1:checked ~ label[for="nc-1-2"] { display: block; }
+#nc-1-2:checked ~ label[for="nc-1-3"] { display: block; }
+#nc-1-1:checked ~ label[for="nc-1-1"] { display: none; }
+#nc-1-2:checked ~ label[for="nc-1-2"] { display: none; }
+#nc-1-3:checked ~ label[for="nc-1-3"] { display: none; }
+#nc-1-1:not(:checked) ~ label[for="nc-1-2"] { display: none; }
+#nc-1-1:not(:checked) ~ label[for="nc-1-3"] { display: none; }
+#nc-1-2:not(:checked) ~ label[for="nc-1-3"] { display: none; }
 
-#ne-2-1:checked ~ label[for="ne-2-2"] { display: block; }
-#ne-2-2:checked ~ label[for="ne-2-3"] { display: block; }
-#ne-2-1:checked ~ label[for="ne-2-1"] { display: none; }
-#ne-2-2:checked ~ label[for="ne-2-2"] { display: none; }
-#ne-2-3:checked ~ label[for="ne-2-3"] { display: none; }
-#ne-2-1:not(:checked) ~ label[for="ne-2-2"] { display: none; }
-#ne-2-1:not(:checked) ~ label[for="ne-2-3"] { display: none; }
-#ne-2-2:not(:checked) ~ label[for="ne-2-3"] { display: none; }
+#nc-2-1:checked ~ label[for="nc-2-2"] { display: block; }
+#nc-2-2:checked ~ label[for="nc-2-3"] { display: block; }
+#nc-2-1:checked ~ label[for="nc-2-1"] { display: none; }
+#nc-2-2:checked ~ label[for="nc-2-2"] { display: none; }
+#nc-2-3:checked ~ label[for="nc-2-3"] { display: none; }
+#nc-2-1:not(:checked) ~ label[for="nc-2-2"] { display: none; }
+#nc-2-1:not(:checked) ~ label[for="nc-2-3"] { display: none; }
+#nc-2-2:not(:checked) ~ label[for="nc-2-3"] { display: none; }
 
-#ne-3-1:checked ~ label[for="ne-3-2"] { display: block; }
-#ne-3-2:checked ~ label[for="ne-3-3"] { display: block; }
-#ne-3-1:checked ~ label[for="ne-3-1"] { display: none; }
-#ne-3-2:checked ~ label[for="ne-3-2"] { display: none; }
-#ne-3-3:checked ~ label[for="ne-3-3"] { display: none; }
-#ne-3-1:not(:checked) ~ label[for="ne-3-2"] { display: none; }
-#ne-3-1:not(:checked) ~ label[for="ne-3-3"] { display: none; }
-#ne-3-2:not(:checked) ~ label[for="ne-3-3"] { display: none; }
+#nc-3-1:checked ~ label[for="nc-3-2"] { display: block; }
+#nc-3-2:checked ~ label[for="nc-3-3"] { display: block; }
+#nc-3-1:checked ~ label[for="nc-3-1"] { display: none; }
+#nc-3-2:checked ~ label[for="nc-3-2"] { display: none; }
+#nc-3-3:checked ~ label[for="nc-3-3"] { display: none; }
+#nc-3-1:not(:checked) ~ label[for="nc-3-2"] { display: none; }
+#nc-3-1:not(:checked) ~ label[for="nc-3-3"] { display: none; }
+#nc-3-2:not(:checked) ~ label[for="nc-3-3"] { display: none; }
 
-#ne-4-1:checked ~ label[for="ne-4-2"] { display: block; }
-#ne-4-2:checked ~ label[for="ne-4-3"] { display: block; }
-#ne-4-1:checked ~ label[for="ne-4-1"] { display: none; }
-#ne-4-2:checked ~ label[for="ne-4-2"] { display: none; }
-#ne-4-3:checked ~ label[for="ne-4-3"] { display: none; }
-#ne-4-1:not(:checked) ~ label[for="ne-4-2"] { display: none; }
-#ne-4-1:not(:checked) ~ label[for="ne-4-3"] { display: none; }
-#ne-4-2:not(:checked) ~ label[for="ne-4-3"] { display: none; }
+#nc-4-1:checked ~ label[for="nc-4-2"] { display: block; }
+#nc-4-2:checked ~ label[for="nc-4-3"] { display: block; }
+#nc-4-1:checked ~ label[for="nc-4-1"] { display: none; }
+#nc-4-2:checked ~ label[for="nc-4-2"] { display: none; }
+#nc-4-3:checked ~ label[for="nc-4-3"] { display: none; }
+#nc-4-1:not(:checked) ~ label[for="nc-4-2"] { display: none; }
+#nc-4-1:not(:checked) ~ label[for="nc-4-3"] { display: none; }
+#nc-4-2:not(:checked) ~ label[for="nc-4-3"] { display: none; }
 
 /* link de remover, no rodapé de cada etapa */
 .remover-etapa {

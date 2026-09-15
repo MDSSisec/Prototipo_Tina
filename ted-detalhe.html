@@ -125,7 +125,7 @@
             <div class="conteudo">21/01/2027</div>
           </div>
           <div class="item">
-            <div class="rotulo">Valor inicial</div>
+            <div class="rotulo">Valor atual</div>
             <div class="conteudo">R$ 1.500.000,00</div>
           </div>
           <div class="item">
@@ -139,8 +139,8 @@
         </div>
 
         <div class="progresso-linha" style="margin-top:22px">
-          <div class="barra quase" style="flex:1"><span style="width:86%"></span></div>
-          <span>6 de 7 etapas concluídas</span>
+          <div class="barra quase" style="flex:1"><span style="width:88%"></span></div>
+          <span>7 de 8 etapas concluídas</span>
         </div>
       </div>
     </section>
@@ -157,21 +157,28 @@
           <li class="etapa concluida">
             <div class="titulo-etapa">
               Verificação de Adimplência
-              <span class="selo verde">Elaborada e assinada</span>
+              <span class="selo verde">Elaborado e assinado</span>
             </div>
           </li>
 
           <li class="etapa concluida">
             <div class="titulo-etapa">
               Certificação Orçamentária
-              <span class="selo verde">Elaborada e assinada</span>
+              <span class="selo verde">Elaborado e assinado</span>
             </div>
           </li>
 
           <li class="etapa concluida">
             <div class="titulo-etapa">
               Formulário de Empenho / Descentralização
-              <span class="selo verde">Concluído &middot; 1 nota emitida</span>
+              <span class="selo verde">Concluído</span>
+            </div>
+          </li>
+
+          <li class="etapa concluida">
+            <div class="titulo-etapa">
+              Nota de Empenho
+              <span class="selo verde">Emitida</span>
             </div>
           </li>
 
@@ -202,13 +209,6 @@
 
           <li class="etapa aguardando">
             <div class="titulo-etapa">
-              Nota de Movimentação de Crédito
-              <span class="selo cinza">Não se aplica</span>
-            </div>
-          </li>
-
-          <li class="etapa aguardando">
-            <div class="titulo-etapa">
               Conclusão do processo
               <span class="selo cinza">Pendente</span>
             </div>
@@ -228,13 +228,11 @@
       <input type="radio" name="visao" id="v-tudo" checked>
       <input type="radio" name="visao" id="v-feito">
       <input type="radio" name="visao" id="v-pendente">
-      <input type="radio" name="visao" id="v-na">
 
       <div class="chips">
         <label class="chip" for="v-tudo">Todos os documentos <span class="conta">6</span></label>
-        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">4</span></label>
+        <label class="chip" for="v-feito">Concluídos e assinados <span class="conta">5</span></label>
         <label class="chip" for="v-pendente">Com pendência <span class="conta">1</span></label>
-        <label class="chip" for="v-na">Não se aplica <span class="conta">1</span></label>
       </div>
 
       <div class="lista-docs">
@@ -244,7 +242,7 @@
           <summary class="cartao-topo">
             <span class="numero">3</span>
             <h2>Verificação de Adimplência</h2>
-            <span class="obrigatorio"><span class="selo verde">Elaborada e assinada</span></span>
+            <span class="obrigatorio"><span class="selo verde">Elaborado e assinado</span></span>
           </summary>
           <div class="cartao-corpo">
             <div class="dados tres">
@@ -254,7 +252,7 @@
               </div>
               <div class="item">
                 <div class="rotulo">Status</div>
-                <div class="conteudo">Elaborada e assinada</div>
+                <div class="conteudo">Elaborado e assinado</div>
               </div>
               <div class="item">
                 <div class="rotulo">Assinaturas</div>
@@ -272,7 +270,7 @@
           <summary class="cartao-topo">
             <span class="numero">4</span>
             <h2>Certificação Orçamentária</h2>
-            <span class="obrigatorio"><span class="selo verde">Elaborada e assinada</span></span>
+            <span class="obrigatorio"><span class="selo verde">Elaborado e assinado</span></span>
           </summary>
           <div class="cartao-corpo">
             <div class="dados tres">
@@ -282,7 +280,7 @@
               </div>
               <div class="item">
                 <div class="rotulo">Status</div>
-                <div class="conteudo">Elaborada e assinada</div>
+                <div class="conteudo">Elaborado e assinado</div>
               </div>
               <div class="item">
                 <div class="rotulo">Assinaturas</div>
@@ -299,7 +297,7 @@
           <summary class="cartao-topo">
             <span class="numero">5</span>
             <h2>Formulário de Empenho / Descentralização</h2>
-            <span class="obrigatorio"><span class="selo verde">1 formulário &middot; 1 nota</span></span>
+            <span class="obrigatorio"><span class="selo verde">1 formulário</span></span>
           </summary>
           <div class="cartao-corpo" style="padding:0">
             <table class="tabela">
@@ -318,8 +316,20 @@
             </table>
 
             <div class="sub-secao">
-              <h4 class="titulo-sub">Notas de empenho deste formulário</h4>
+              <h4 class="titulo-sub">Notas de movimentação de crédito deste formulário</h4>
+              <p style="margin:0;font-size:13px;color:var(--texto-suave)">Nenhuma registrada.</p>
             </div>
+          </div>
+        </details>
+
+        <!-- ---- 6. Nota de Empenho ---- -->
+        <details class="cartao v-ok">
+          <summary class="cartao-topo">
+            <span class="numero">6</span>
+            <h2>Nota de Empenho</h2>
+            <span class="obrigatorio"><span class="selo verde">1 nota emitida</span></span>
+          </summary>
+          <div class="cartao-corpo" style="padding:0">
             <table class="tabela">
               <thead>
                 <tr>
@@ -339,10 +349,10 @@
           </div>
         </details>
 
-        <!-- ---- 6. Formulário de Pagamento ---- -->
+        <!-- ---- 7. Formulário de Pagamento ---- -->
         <details class="cartao v-ok">
           <summary class="cartao-topo">
-            <span class="numero">6</span>
+            <span class="numero">7</span>
             <h2>Formulário de Pagamento / Repasse Financeiro</h2>
             <span class="obrigatorio"><span class="selo verde">Enviado ao SGT</span></span>
           </summary>
@@ -375,7 +385,7 @@
         <!-- ---- 8. Nota de Programação Financeira (a que falta) ---- -->
         <details class="cartao v-falta" open>
           <summary class="cartao-topo">
-            <span class="numero">7</span>
+            <span class="numero">8</span>
             <h2>Nota de Programação Financeira</h2>
             <span class="obrigatorio"><span class="selo ambar">Esperando</span></span>
           </summary>
@@ -386,12 +396,12 @@
                 <div class="conteudo"><a href="#lembrete" class="btn-lembrar">Criar lembrete</a></div>
               </div>
               <div class="item">
-                <div class="rotulo">Número da parcela</div>
-                <div class="conteudo">2025PF000014</div>
-              </div>
-              <div class="item">
                 <div class="rotulo">Código SEI</div>
                 <div class="conteudo">18781004</div>
+              </div>
+              <div class="item">
+                <div class="rotulo">Número da parcela</div>
+                <div class="conteudo">2025PF000014</div>
               </div>
               <div class="item">
                 <div class="rotulo">Data de emissão</div>
@@ -402,21 +412,6 @@
                 <div class="conteudo">Esperando</div>
               </div>
             </div>
-          </div>
-        </details>
-
-        <!-- ---- 8. Nota de Movimentação de Crédito ---- -->
-        <details class="cartao v-na">
-          <summary class="cartao-topo">
-            <span class="numero">8</span>
-            <h2>Nota de Movimentação de Crédito</h2>
-            <span class="obrigatorio"><span class="selo cinza">Não se aplica</span></span>
-          </summary>
-          <div class="cartao-corpo">
-            <p style="margin:0;font-size:14px;color:var(--texto-suave)">
-              Este processo não tem Nota de Movimentação de Crédito, então ela não entra na contagem
-              das etapas. Pode ser adicionada em <a href="ted-novo.html">Editar</a>.
-            </p>
           </div>
         </details>
 
@@ -673,8 +668,8 @@
               <tr>
                 <td class="principal">28/07/2025 &middot; 11:03</td>
                 <td>Certificação Orçamentária — status</td>
-                <td class="secundario">Elaboração</td>
-                <td>Elaborada e assinada</td>
+                <td class="secundario">Em elaboração</td>
+                <td>Elaborado e assinado</td>
                 <td>Tina</td>
               </tr>
 
